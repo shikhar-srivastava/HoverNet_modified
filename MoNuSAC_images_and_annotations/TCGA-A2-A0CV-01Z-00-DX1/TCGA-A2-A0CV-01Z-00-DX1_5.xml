@@ -1,0 +1,794 @@
+<Annotations MicronsPerPixel="0.250500">
+	<Annotation Id="1" Name="" ReadOnly="0" NameReadOnly="0" LineColorReadOnly="0" Incremental="0" Type="4" LineColor="255" Visible="1" Selected="0" MarkupImagePath="" MacroName="">
+		<Attributes>
+			<Attribute Name="Epithelial" Id="0" Value=""/>
+		</Attributes>
+		<Regions>
+			<RegionAttributeHeaders>
+				<AttributeHeader Id="9999" Name="Region" ColumnWidth="-1"/>
+				<AttributeHeader Id="9997" Name="Length" ColumnWidth="-1"/>
+				<AttributeHeader Id="9996" Name="Area" ColumnWidth="-1"/>
+				<AttributeHeader Id="9998" Name="Text" ColumnWidth="-1"/>
+				<AttributeHeader Id="1" Name="Description" ColumnWidth="-1"/>
+			</RegionAttributeHeaders>
+		</Regions>
+		<Plots/>
+	</Annotation>
+	<Annotation Id="2" Name="" ReadOnly="0" NameReadOnly="0" LineColorReadOnly="0" Incremental="0" Type="4" LineColor="65535" Visible="1" Selected="1" MarkupImagePath="" MacroName="">
+		<Attributes>
+			<Attribute Name="Lymphocyte" Id="0" Value=""/>
+		</Attributes>
+		<Regions>
+			<RegionAttributeHeaders>
+				<AttributeHeader Id="9999" Name="Region" ColumnWidth="-1"/>
+				<AttributeHeader Id="9997" Name="Length" ColumnWidth="-1"/>
+				<AttributeHeader Id="9996" Name="Area" ColumnWidth="-1"/>
+				<AttributeHeader Id="9998" Name="Text" ColumnWidth="-1"/>
+				<AttributeHeader Id="1" Name="Description" ColumnWidth="-1"/>
+			</RegionAttributeHeaders>
+			<Region Id="1" Type="0" Zoom="4.990020" Selected="0" ImageLocation="" ImageFocus="-1" Length="75.1" Area="285.5" LengthMicrons="18.8" AreaMicrons="17.9" Text="" NegativeROA="0" InputRegionId="0" Analyze="1" DisplayId="1">
+				<Attributes/>
+				<Vertices>
+					<Vertex X="155" Y="42" Z="0"/>
+					<Vertex X="156" Y="42" Z="0"/>
+					<Vertex X="156" Y="43" Z="0"/>
+					<Vertex X="157" Y="43" Z="0"/>
+					<Vertex X="157" Y="44" Z="0"/>
+					<Vertex X="157" Y="45" Z="0"/>
+					<Vertex X="158" Y="46" Z="0"/>
+					<Vertex X="158" Y="47" Z="0"/>
+					<Vertex X="159" Y="48" Z="0"/>
+					<Vertex X="159" Y="49" Z="0"/>
+					<Vertex X="158" Y="49" Z="0"/>
+					<Vertex X="158" Y="50" Z="0"/>
+					<Vertex X="158" Y="51" Z="0"/>
+					<Vertex X="158" Y="52" Z="0"/>
+					<Vertex X="157" Y="52" Z="0"/>
+					<Vertex X="157" Y="53" Z="0"/>
+					<Vertex X="157" Y="54" Z="0"/>
+					<Vertex X="156" Y="54" Z="0"/>
+					<Vertex X="156" Y="55" Z="0"/>
+					<Vertex X="155" Y="55" Z="0"/>
+					<Vertex X="155" Y="56" Z="0"/>
+					<Vertex X="154" Y="56" Z="0"/>
+					<Vertex X="154" Y="57" Z="0"/>
+					<Vertex X="153" Y="57" Z="0"/>
+					<Vertex X="152" Y="57" Z="0"/>
+					<Vertex X="152" Y="58" Z="0"/>
+					<Vertex X="151" Y="58" Z="0"/>
+					<Vertex X="150" Y="58" Z="0"/>
+					<Vertex X="149" Y="58" Z="0"/>
+					<Vertex X="149" Y="59" Z="0"/>
+					<Vertex X="148" Y="59" Z="0"/>
+					<Vertex X="148" Y="58" Z="0"/>
+					<Vertex X="147" Y="58" Z="0"/>
+					<Vertex X="146" Y="58" Z="0"/>
+					<Vertex X="145" Y="58" Z="0"/>
+					<Vertex X="144" Y="57" Z="0"/>
+					<Vertex X="143" Y="57" Z="0"/>
+					<Vertex X="143" Y="56" Z="0"/>
+					<Vertex X="142" Y="56" Z="0"/>
+					<Vertex X="142" Y="55" Z="0"/>
+					<Vertex X="142" Y="54" Z="0"/>
+					<Vertex X="141" Y="54" Z="0"/>
+					<Vertex X="140" Y="53" Z="0"/>
+					<Vertex X="140" Y="52" Z="0"/>
+					<Vertex X="140" Y="51" Z="0"/>
+					<Vertex X="139" Y="51" Z="0"/>
+					<Vertex X="139" Y="50" Z="0"/>
+					<Vertex X="139" Y="49" Z="0"/>
+					<Vertex X="139" Y="48" Z="0"/>
+					<Vertex X="139" Y="47" Z="0"/>
+					<Vertex X="139" Y="46" Z="0"/>
+					<Vertex X="139" Y="45" Z="0"/>
+					<Vertex X="139" Y="44" Z="0"/>
+					<Vertex X="140" Y="44" Z="0"/>
+					<Vertex X="140" Y="43" Z="0"/>
+					<Vertex X="141" Y="43" Z="0"/>
+					<Vertex X="141" Y="42" Z="0"/>
+					<Vertex X="142" Y="42" Z="0"/>
+					<Vertex X="142" Y="41" Z="0"/>
+					<Vertex X="143" Y="41" Z="0"/>
+					<Vertex X="143" Y="40" Z="0"/>
+					<Vertex X="144" Y="40" Z="0"/>
+					<Vertex X="145" Y="40" Z="0"/>
+					<Vertex X="146" Y="40" Z="0"/>
+					<Vertex X="147" Y="40" Z="0"/>
+					<Vertex X="148" Y="40" Z="0"/>
+					<Vertex X="149" Y="40" Z="0"/>
+					<Vertex X="150" Y="40" Z="0"/>
+					<Vertex X="151" Y="40" Z="0"/>
+					<Vertex X="152" Y="40" Z="0"/>
+					<Vertex X="153" Y="40" Z="0"/>
+					<Vertex X="153" Y="41" Z="0"/>
+					<Vertex X="154" Y="41" Z="0"/>
+					<Vertex X="155" Y="42" Z="0"/>
+					<Vertex X="155" Y="42" Z="0"/>
+				</Vertices>
+			</Region>
+		</Regions>
+		<Plots/>
+	</Annotation>
+	<Annotation Id="3" Name="" ReadOnly="0" NameReadOnly="0" LineColorReadOnly="0" Incremental="0" Type="4" LineColor="16711680" Visible="1" Selected="0" MarkupImagePath="" MacroName="">
+		<Attributes>
+			<Attribute Name="Neutrophil" Id="0" Value=""/>
+		</Attributes>
+		<Regions>
+			<RegionAttributeHeaders>
+				<AttributeHeader Id="9999" Name="Region" ColumnWidth="-1"/>
+				<AttributeHeader Id="9997" Name="Length" ColumnWidth="-1"/>
+				<AttributeHeader Id="9996" Name="Area" ColumnWidth="-1"/>
+				<AttributeHeader Id="9998" Name="Text" ColumnWidth="-1"/>
+				<AttributeHeader Id="1" Name="Description" ColumnWidth="-1"/>
+			</RegionAttributeHeaders>
+			<Region Id="2" Type="0" Zoom="5" Selected="1" ImageLocation="" ImageFocus="-1" Length="105.6" Area="540.5" LengthMicrons="26.4" AreaMicrons="33.9" Text="" NegativeROA="0" InputRegionId="0" Analyze="1" DisplayId="2">
+				<Attributes/>
+				<Vertices>
+					<Vertex X="67" Y="92" Z="0"/>
+					<Vertex X="66" Y="92" Z="0"/>
+					<Vertex X="66" Y="91" Z="0"/>
+					<Vertex X="65" Y="91" Z="0"/>
+					<Vertex X="64" Y="91" Z="0"/>
+					<Vertex X="63" Y="90" Z="0"/>
+					<Vertex X="63" Y="89" Z="0"/>
+					<Vertex X="62" Y="89" Z="0"/>
+					<Vertex X="61" Y="88" Z="0"/>
+					<Vertex X="61" Y="87" Z="0"/>
+					<Vertex X="60" Y="86" Z="0"/>
+					<Vertex X="60" Y="85" Z="0"/>
+					<Vertex X="59" Y="85" Z="0"/>
+					<Vertex X="58" Y="84" Z="0"/>
+					<Vertex X="58" Y="83" Z="0"/>
+					<Vertex X="58" Y="82" Z="0"/>
+					<Vertex X="57" Y="82" Z="0"/>
+					<Vertex X="57" Y="81" Z="0"/>
+					<Vertex X="57" Y="80" Z="0"/>
+					<Vertex X="56" Y="79" Z="0"/>
+					<Vertex X="56" Y="78" Z="0"/>
+					<Vertex X="56" Y="77" Z="0"/>
+					<Vertex X="56" Y="76" Z="0"/>
+					<Vertex X="56" Y="75" Z="0"/>
+					<Vertex X="56" Y="74" Z="0"/>
+					<Vertex X="56" Y="73" Z="0"/>
+					<Vertex X="57" Y="73" Z="0"/>
+					<Vertex X="57" Y="72" Z="0"/>
+					<Vertex X="57" Y="71" Z="0"/>
+					<Vertex X="58" Y="71" Z="0"/>
+					<Vertex X="58" Y="70" Z="0"/>
+					<Vertex X="59" Y="70" Z="0"/>
+					<Vertex X="60" Y="70" Z="0"/>
+					<Vertex X="61" Y="69" Z="0"/>
+					<Vertex X="61" Y="68" Z="0"/>
+					<Vertex X="62" Y="68" Z="0"/>
+					<Vertex X="63" Y="67" Z="0"/>
+					<Vertex X="64" Y="67" Z="0"/>
+					<Vertex X="65" Y="67" Z="0"/>
+					<Vertex X="66" Y="67" Z="0"/>
+					<Vertex X="67" Y="67" Z="0"/>
+					<Vertex X="68" Y="66" Z="0"/>
+					<Vertex X="69" Y="66" Z="0"/>
+					<Vertex X="70" Y="66" Z="0"/>
+					<Vertex X="71" Y="66" Z="0"/>
+					<Vertex X="72" Y="66" Z="0"/>
+					<Vertex X="73" Y="66" Z="0"/>
+					<Vertex X="73" Y="65" Z="0"/>
+					<Vertex X="74" Y="65" Z="0"/>
+					<Vertex X="75" Y="66" Z="0"/>
+					<Vertex X="76" Y="66" Z="0"/>
+					<Vertex X="77" Y="66" Z="0"/>
+					<Vertex X="78" Y="66" Z="0"/>
+					<Vertex X="78" Y="67" Z="0"/>
+					<Vertex X="79" Y="67" Z="0"/>
+					<Vertex X="79" Y="68" Z="0"/>
+					<Vertex X="79" Y="69" Z="0"/>
+					<Vertex X="80" Y="70" Z="0"/>
+					<Vertex X="80" Y="71" Z="0"/>
+					<Vertex X="80" Y="72" Z="0"/>
+					<Vertex X="81" Y="72" Z="0"/>
+					<Vertex X="81" Y="73" Z="0"/>
+					<Vertex X="82" Y="73" Z="0"/>
+					<Vertex X="82" Y="74" Z="0"/>
+					<Vertex X="83" Y="74" Z="0"/>
+					<Vertex X="83" Y="75" Z="0"/>
+					<Vertex X="83" Y="76" Z="0"/>
+					<Vertex X="83" Y="77" Z="0"/>
+					<Vertex X="82" Y="78" Z="0"/>
+					<Vertex X="82" Y="79" Z="0"/>
+					<Vertex X="82" Y="80" Z="0"/>
+					<Vertex X="82" Y="81" Z="0"/>
+					<Vertex X="81" Y="81" Z="0"/>
+					<Vertex X="81" Y="82" Z="0"/>
+					<Vertex X="81" Y="83" Z="0"/>
+					<Vertex X="80" Y="83" Z="0"/>
+					<Vertex X="80" Y="84" Z="0"/>
+					<Vertex X="79" Y="84" Z="0"/>
+					<Vertex X="79" Y="85" Z="0"/>
+					<Vertex X="78" Y="85" Z="0"/>
+					<Vertex X="78" Y="86" Z="0"/>
+					<Vertex X="78" Y="87" Z="0"/>
+					<Vertex X="77" Y="87" Z="0"/>
+					<Vertex X="77" Y="88" Z="0"/>
+					<Vertex X="77" Y="89" Z="0"/>
+					<Vertex X="76" Y="89" Z="0"/>
+					<Vertex X="76" Y="90" Z="0"/>
+					<Vertex X="75" Y="90" Z="0"/>
+					<Vertex X="75" Y="91" Z="0"/>
+					<Vertex X="74" Y="91" Z="0"/>
+					<Vertex X="74" Y="92" Z="0"/>
+					<Vertex X="73" Y="92" Z="0"/>
+					<Vertex X="72" Y="92" Z="0"/>
+					<Vertex X="72" Y="93" Z="0"/>
+					<Vertex X="71" Y="93" Z="0"/>
+					<Vertex X="70" Y="93" Z="0"/>
+					<Vertex X="70" Y="94" Z="0"/>
+					<Vertex X="69" Y="94" Z="0"/>
+					<Vertex X="68" Y="94" Z="0"/>
+					<Vertex X="68" Y="93" Z="0"/>
+					<Vertex X="67" Y="93" Z="0"/>
+					<Vertex X="67" Y="92" Z="0"/>
+				</Vertices>
+			</Region>
+			<Region Id="3" Type="0" Zoom="5" Selected="0" ImageLocation="" ImageFocus="-1" Length="96.5" Area="476.0" LengthMicrons="24.2" AreaMicrons="29.9" Text="" NegativeROA="0" InputRegionId="0" Analyze="1" DisplayId="3">
+				<Attributes/>
+				<Vertices>
+					<Vertex X="112" Y="86" Z="0"/>
+					<Vertex X="111" Y="85" Z="0"/>
+					<Vertex X="111" Y="84" Z="0"/>
+					<Vertex X="110" Y="83" Z="0"/>
+					<Vertex X="110" Y="82" Z="0"/>
+					<Vertex X="109" Y="81" Z="0"/>
+					<Vertex X="109" Y="80" Z="0"/>
+					<Vertex X="108" Y="79" Z="0"/>
+					<Vertex X="107" Y="78" Z="0"/>
+					<Vertex X="107" Y="77" Z="0"/>
+					<Vertex X="106" Y="76" Z="0"/>
+					<Vertex X="106" Y="77" Z="0"/>
+					<Vertex X="106" Y="76" Z="0"/>
+					<Vertex X="106" Y="75" Z="0"/>
+					<Vertex X="106" Y="74" Z="0"/>
+					<Vertex X="106" Y="73" Z="0"/>
+					<Vertex X="107" Y="73" Z="0"/>
+					<Vertex X="107" Y="72" Z="0"/>
+					<Vertex X="107" Y="71" Z="0"/>
+					<Vertex X="108" Y="71" Z="0"/>
+					<Vertex X="108" Y="70" Z="0"/>
+					<Vertex X="108" Y="69" Z="0"/>
+					<Vertex X="109" Y="69" Z="0"/>
+					<Vertex X="109" Y="68" Z="0"/>
+					<Vertex X="110" Y="67" Z="0"/>
+					<Vertex X="110" Y="66" Z="0"/>
+					<Vertex X="111" Y="66" Z="0"/>
+					<Vertex X="111" Y="65" Z="0"/>
+					<Vertex X="112" Y="65" Z="0"/>
+					<Vertex X="113" Y="65" Z="0"/>
+					<Vertex X="114" Y="65" Z="0"/>
+					<Vertex X="115" Y="65" Z="0"/>
+					<Vertex X="117" Y="64" Z="0"/>
+					<Vertex X="118" Y="64" Z="0"/>
+					<Vertex X="119" Y="64" Z="0"/>
+					<Vertex X="120" Y="64" Z="0"/>
+					<Vertex X="121" Y="64" Z="0"/>
+					<Vertex X="122" Y="64" Z="0"/>
+					<Vertex X="123" Y="64" Z="0"/>
+					<Vertex X="123" Y="65" Z="0"/>
+					<Vertex X="124" Y="65" Z="0"/>
+					<Vertex X="125" Y="65" Z="0"/>
+					<Vertex X="125" Y="66" Z="0"/>
+					<Vertex X="126" Y="66" Z="0"/>
+					<Vertex X="127" Y="66" Z="0"/>
+					<Vertex X="127" Y="67" Z="0"/>
+					<Vertex X="128" Y="67" Z="0"/>
+					<Vertex X="128" Y="68" Z="0"/>
+					<Vertex X="129" Y="68" Z="0"/>
+					<Vertex X="129" Y="69" Z="0"/>
+					<Vertex X="129" Y="70" Z="0"/>
+					<Vertex X="130" Y="70" Z="0"/>
+					<Vertex X="130" Y="71" Z="0"/>
+					<Vertex X="130" Y="72" Z="0"/>
+					<Vertex X="130" Y="73" Z="0"/>
+					<Vertex X="130" Y="74" Z="0"/>
+					<Vertex X="131" Y="74" Z="0"/>
+					<Vertex X="131" Y="75" Z="0"/>
+					<Vertex X="131" Y="76" Z="0"/>
+					<Vertex X="131" Y="77" Z="0"/>
+					<Vertex X="131" Y="78" Z="0"/>
+					<Vertex X="131" Y="79" Z="0"/>
+					<Vertex X="131" Y="80" Z="0"/>
+					<Vertex X="131" Y="81" Z="0"/>
+					<Vertex X="131" Y="82" Z="0"/>
+					<Vertex X="130" Y="82" Z="0"/>
+					<Vertex X="130" Y="83" Z="0"/>
+					<Vertex X="129" Y="83" Z="0"/>
+					<Vertex X="129" Y="84" Z="0"/>
+					<Vertex X="128" Y="84" Z="0"/>
+					<Vertex X="128" Y="85" Z="0"/>
+					<Vertex X="127" Y="85" Z="0"/>
+					<Vertex X="127" Y="86" Z="0"/>
+					<Vertex X="126" Y="86" Z="0"/>
+					<Vertex X="126" Y="87" Z="0"/>
+					<Vertex X="125" Y="87" Z="0"/>
+					<Vertex X="124" Y="88" Z="0"/>
+					<Vertex X="123" Y="88" Z="0"/>
+					<Vertex X="123" Y="89" Z="0"/>
+					<Vertex X="122" Y="89" Z="0"/>
+					<Vertex X="121" Y="89" Z="0"/>
+					<Vertex X="120" Y="89" Z="0"/>
+					<Vertex X="119" Y="89" Z="0"/>
+					<Vertex X="118" Y="89" Z="0"/>
+					<Vertex X="117" Y="89" Z="0"/>
+					<Vertex X="117" Y="88" Z="0"/>
+					<Vertex X="116" Y="88" Z="0"/>
+					<Vertex X="115" Y="88" Z="0"/>
+					<Vertex X="115" Y="87" Z="0"/>
+					<Vertex X="114" Y="87" Z="0"/>
+					<Vertex X="114" Y="86" Z="0"/>
+					<Vertex X="113" Y="86" Z="0"/>
+					<Vertex X="112" Y="86" Z="0"/>
+					<Vertex X="112" Y="86" Z="0"/>
+				</Vertices>
+			</Region>
+			<Region Id="4" Type="0" Zoom="5" Selected="0" ImageLocation="" ImageFocus="-1" Length="84.4" Area="434.5" LengthMicrons="21.2" AreaMicrons="27.3" Text="" NegativeROA="0" InputRegionId="0" Analyze="1" DisplayId="4">
+				<Attributes/>
+				<Vertices>
+					<Vertex X="68" Y="96" Z="0"/>
+					<Vertex X="69" Y="96" Z="0"/>
+					<Vertex X="70" Y="96" Z="0"/>
+					<Vertex X="71" Y="96" Z="0"/>
+					<Vertex X="72" Y="96" Z="0"/>
+					<Vertex X="73" Y="96" Z="0"/>
+					<Vertex X="74" Y="97" Z="0"/>
+					<Vertex X="75" Y="97" Z="0"/>
+					<Vertex X="75" Y="98" Z="0"/>
+					<Vertex X="76" Y="98" Z="0"/>
+					<Vertex X="76" Y="99" Z="0"/>
+					<Vertex X="77" Y="100" Z="0"/>
+					<Vertex X="78" Y="100" Z="0"/>
+					<Vertex X="78" Y="101" Z="0"/>
+					<Vertex X="78" Y="102" Z="0"/>
+					<Vertex X="79" Y="103" Z="0"/>
+					<Vertex X="79" Y="104" Z="0"/>
+					<Vertex X="80" Y="104" Z="0"/>
+					<Vertex X="80" Y="105" Z="0"/>
+					<Vertex X="81" Y="106" Z="0"/>
+					<Vertex X="81" Y="107" Z="0"/>
+					<Vertex X="81" Y="108" Z="0"/>
+					<Vertex X="81" Y="109" Z="0"/>
+					<Vertex X="81" Y="110" Z="0"/>
+					<Vertex X="80" Y="111" Z="0"/>
+					<Vertex X="79" Y="112" Z="0"/>
+					<Vertex X="78" Y="113" Z="0"/>
+					<Vertex X="78" Y="114" Z="0"/>
+					<Vertex X="77" Y="114" Z="0"/>
+					<Vertex X="76" Y="115" Z="0"/>
+					<Vertex X="75" Y="116" Z="0"/>
+					<Vertex X="74" Y="116" Z="0"/>
+					<Vertex X="73" Y="117" Z="0"/>
+					<Vertex X="72" Y="117" Z="0"/>
+					<Vertex X="71" Y="118" Z="0"/>
+					<Vertex X="70" Y="118" Z="0"/>
+					<Vertex X="69" Y="118" Z="0"/>
+					<Vertex X="68" Y="118" Z="0"/>
+					<Vertex X="67" Y="118" Z="0"/>
+					<Vertex X="66" Y="118" Z="0"/>
+					<Vertex X="65" Y="118" Z="0"/>
+					<Vertex X="64" Y="118" Z="0"/>
+					<Vertex X="63" Y="118" Z="0"/>
+					<Vertex X="62" Y="117" Z="0"/>
+					<Vertex X="61" Y="117" Z="0"/>
+					<Vertex X="61" Y="116" Z="0"/>
+					<Vertex X="60" Y="116" Z="0"/>
+					<Vertex X="59" Y="115" Z="0"/>
+					<Vertex X="59" Y="114" Z="0"/>
+					<Vertex X="58" Y="114" Z="0"/>
+					<Vertex X="58" Y="113" Z="0"/>
+					<Vertex X="57" Y="111" Z="0"/>
+					<Vertex X="57" Y="110" Z="0"/>
+					<Vertex X="57" Y="109" Z="0"/>
+					<Vertex X="56" Y="109" Z="0"/>
+					<Vertex X="56" Y="108" Z="0"/>
+					<Vertex X="56" Y="107" Z="0"/>
+					<Vertex X="56" Y="106" Z="0"/>
+					<Vertex X="56" Y="105" Z="0"/>
+					<Vertex X="56" Y="104" Z="0"/>
+					<Vertex X="56" Y="103" Z="0"/>
+					<Vertex X="56" Y="102" Z="0"/>
+					<Vertex X="57" Y="101" Z="0"/>
+					<Vertex X="57" Y="100" Z="0"/>
+					<Vertex X="58" Y="100" Z="0"/>
+					<Vertex X="58" Y="99" Z="0"/>
+					<Vertex X="59" Y="99" Z="0"/>
+					<Vertex X="59" Y="98" Z="0"/>
+					<Vertex X="60" Y="98" Z="0"/>
+					<Vertex X="61" Y="98" Z="0"/>
+					<Vertex X="62" Y="97" Z="0"/>
+					<Vertex X="63" Y="97" Z="0"/>
+					<Vertex X="64" Y="97" Z="0"/>
+					<Vertex X="65" Y="97" Z="0"/>
+					<Vertex X="65" Y="96" Z="0"/>
+					<Vertex X="66" Y="96" Z="0"/>
+					<Vertex X="67" Y="96" Z="0"/>
+					<Vertex X="68" Y="96" Z="0"/>
+					<Vertex X="68" Y="96" Z="0"/>
+				</Vertices>
+			</Region>
+			<Region Id="5" Type="0" Zoom="5" Selected="0" ImageLocation="" ImageFocus="-1" Length="90.4" Area="417.5" LengthMicrons="22.6" AreaMicrons="26.2" Text="" NegativeROA="0" InputRegionId="0" Analyze="1" DisplayId="5">
+				<Attributes/>
+				<Vertices>
+					<Vertex X="86" Y="55" Z="0"/>
+					<Vertex X="85" Y="56" Z="0"/>
+					<Vertex X="84" Y="57" Z="0"/>
+					<Vertex X="83" Y="57" Z="0"/>
+					<Vertex X="82" Y="58" Z="0"/>
+					<Vertex X="81" Y="58" Z="0"/>
+					<Vertex X="80" Y="59" Z="0"/>
+					<Vertex X="79" Y="60" Z="0"/>
+					<Vertex X="78" Y="60" Z="0"/>
+					<Vertex X="77" Y="60" Z="0"/>
+					<Vertex X="76" Y="60" Z="0"/>
+					<Vertex X="75" Y="60" Z="0"/>
+					<Vertex X="74" Y="60" Z="0"/>
+					<Vertex X="73" Y="60" Z="0"/>
+					<Vertex X="73" Y="59" Z="0"/>
+					<Vertex X="72" Y="59" Z="0"/>
+					<Vertex X="71" Y="58" Z="0"/>
+					<Vertex X="70" Y="58" Z="0"/>
+					<Vertex X="69" Y="58" Z="0"/>
+					<Vertex X="69" Y="57" Z="0"/>
+					<Vertex X="68" Y="57" Z="0"/>
+					<Vertex X="68" Y="56" Z="0"/>
+					<Vertex X="67" Y="56" Z="0"/>
+					<Vertex X="67" Y="55" Z="0"/>
+					<Vertex X="66" Y="54" Z="0"/>
+					<Vertex X="66" Y="53" Z="0"/>
+					<Vertex X="66" Y="52" Z="0"/>
+					<Vertex X="66" Y="51" Z="0"/>
+					<Vertex X="66" Y="50" Z="0"/>
+					<Vertex X="66" Y="49" Z="0"/>
+					<Vertex X="66" Y="48" Z="0"/>
+					<Vertex X="66" Y="47" Z="0"/>
+					<Vertex X="66" Y="46" Z="0"/>
+					<Vertex X="66" Y="45" Z="0"/>
+					<Vertex X="66" Y="44" Z="0"/>
+					<Vertex X="66" Y="43" Z="0"/>
+					<Vertex X="67" Y="43" Z="0"/>
+					<Vertex X="67" Y="42" Z="0"/>
+					<Vertex X="67" Y="41" Z="0"/>
+					<Vertex X="68" Y="41" Z="0"/>
+					<Vertex X="68" Y="40" Z="0"/>
+					<Vertex X="68" Y="39" Z="0"/>
+					<Vertex X="69" Y="39" Z="0"/>
+					<Vertex X="69" Y="38" Z="0"/>
+					<Vertex X="70" Y="38" Z="0"/>
+					<Vertex X="70" Y="37" Z="0"/>
+					<Vertex X="71" Y="37" Z="0"/>
+					<Vertex X="72" Y="36" Z="0"/>
+					<Vertex X="73" Y="36" Z="0"/>
+					<Vertex X="73" Y="35" Z="0"/>
+					<Vertex X="74" Y="35" Z="0"/>
+					<Vertex X="75" Y="35" Z="0"/>
+					<Vertex X="76" Y="35" Z="0"/>
+					<Vertex X="77" Y="36" Z="0"/>
+					<Vertex X="78" Y="36" Z="0"/>
+					<Vertex X="78" Y="37" Z="0"/>
+					<Vertex X="79" Y="37" Z="0"/>
+					<Vertex X="80" Y="38" Z="0"/>
+					<Vertex X="81" Y="38" Z="0"/>
+					<Vertex X="81" Y="39" Z="0"/>
+					<Vertex X="82" Y="40" Z="0"/>
+					<Vertex X="83" Y="40" Z="0"/>
+					<Vertex X="83" Y="41" Z="0"/>
+					<Vertex X="84" Y="41" Z="0"/>
+					<Vertex X="84" Y="42" Z="0"/>
+					<Vertex X="85" Y="42" Z="0"/>
+					<Vertex X="85" Y="43" Z="0"/>
+					<Vertex X="86" Y="43" Z="0"/>
+					<Vertex X="86" Y="44" Z="0"/>
+					<Vertex X="87" Y="44" Z="0"/>
+					<Vertex X="88" Y="45" Z="0"/>
+					<Vertex X="89" Y="45" Z="0"/>
+					<Vertex X="89" Y="46" Z="0"/>
+					<Vertex X="90" Y="47" Z="0"/>
+					<Vertex X="90" Y="48" Z="0"/>
+					<Vertex X="89" Y="48" Z="0"/>
+					<Vertex X="89" Y="49" Z="0"/>
+					<Vertex X="88" Y="49" Z="0"/>
+					<Vertex X="88" Y="50" Z="0"/>
+					<Vertex X="87" Y="50" Z="0"/>
+					<Vertex X="87" Y="51" Z="0"/>
+					<Vertex X="87" Y="52" Z="0"/>
+					<Vertex X="86" Y="52" Z="0"/>
+					<Vertex X="86" Y="53" Z="0"/>
+					<Vertex X="86" Y="54" Z="0"/>
+					<Vertex X="86" Y="55" Z="0"/>
+					<Vertex X="86" Y="55" Z="0"/>
+				</Vertices>
+			</Region>
+			<Region Id="6" Type="0" Zoom="5" Selected="0" ImageLocation="" ImageFocus="-1" Length="99.2" Area="504.5" LengthMicrons="24.9" AreaMicrons="31.7" Text="" NegativeROA="0" InputRegionId="0" Analyze="1" DisplayId="6">
+				<Attributes/>
+				<Vertices>
+					<Vertex X="124" Y="32" Z="0"/>
+					<Vertex X="125" Y="33" Z="0"/>
+					<Vertex X="126" Y="33" Z="0"/>
+					<Vertex X="126" Y="34" Z="0"/>
+					<Vertex X="127" Y="34" Z="0"/>
+					<Vertex X="127" Y="35" Z="0"/>
+					<Vertex X="128" Y="36" Z="0"/>
+					<Vertex X="128" Y="37" Z="0"/>
+					<Vertex X="129" Y="37" Z="0"/>
+					<Vertex X="129" Y="38" Z="0"/>
+					<Vertex X="129" Y="39" Z="0"/>
+					<Vertex X="130" Y="39" Z="0"/>
+					<Vertex X="130" Y="40" Z="0"/>
+					<Vertex X="131" Y="40" Z="0"/>
+					<Vertex X="131" Y="41" Z="0"/>
+					<Vertex X="131" Y="42" Z="0"/>
+					<Vertex X="131" Y="43" Z="0"/>
+					<Vertex X="131" Y="44" Z="0"/>
+					<Vertex X="131" Y="45" Z="0"/>
+					<Vertex X="130" Y="45" Z="0"/>
+					<Vertex X="130" Y="46" Z="0"/>
+					<Vertex X="130" Y="47" Z="0"/>
+					<Vertex X="130" Y="48" Z="0"/>
+					<Vertex X="129" Y="48" Z="0"/>
+					<Vertex X="129" Y="49" Z="0"/>
+					<Vertex X="129" Y="50" Z="0"/>
+					<Vertex X="129" Y="51" Z="0"/>
+					<Vertex X="129" Y="52" Z="0"/>
+					<Vertex X="129" Y="53" Z="0"/>
+					<Vertex X="128" Y="53" Z="0"/>
+					<Vertex X="128" Y="54" Z="0"/>
+					<Vertex X="128" Y="55" Z="0"/>
+					<Vertex X="127" Y="55" Z="0"/>
+					<Vertex X="127" Y="56" Z="0"/>
+					<Vertex X="126" Y="56" Z="0"/>
+					<Vertex X="125" Y="56" Z="0"/>
+					<Vertex X="125" Y="57" Z="0"/>
+					<Vertex X="124" Y="57" Z="0"/>
+					<Vertex X="123" Y="58" Z="0"/>
+					<Vertex X="122" Y="58" Z="0"/>
+					<Vertex X="122" Y="59" Z="0"/>
+					<Vertex X="121" Y="59" Z="0"/>
+					<Vertex X="121" Y="60" Z="0"/>
+					<Vertex X="120" Y="60" Z="0"/>
+					<Vertex X="119" Y="60" Z="0"/>
+					<Vertex X="118" Y="60" Z="0"/>
+					<Vertex X="118" Y="59" Z="0"/>
+					<Vertex X="117" Y="59" Z="0"/>
+					<Vertex X="116" Y="59" Z="0"/>
+					<Vertex X="115" Y="59" Z="0"/>
+					<Vertex X="115" Y="58" Z="0"/>
+					<Vertex X="114" Y="58" Z="0"/>
+					<Vertex X="113" Y="57" Z="0"/>
+					<Vertex X="112" Y="57" Z="0"/>
+					<Vertex X="112" Y="56" Z="0"/>
+					<Vertex X="111" Y="56" Z="0"/>
+					<Vertex X="110" Y="55" Z="0"/>
+					<Vertex X="110" Y="54" Z="0"/>
+					<Vertex X="109" Y="54" Z="0"/>
+					<Vertex X="109" Y="53" Z="0"/>
+					<Vertex X="108" Y="53" Z="0"/>
+					<Vertex X="108" Y="52" Z="0"/>
+					<Vertex X="107" Y="51" Z="0"/>
+					<Vertex X="107" Y="50" Z="0"/>
+					<Vertex X="107" Y="49" Z="0"/>
+					<Vertex X="107" Y="48" Z="0"/>
+					<Vertex X="107" Y="47" Z="0"/>
+					<Vertex X="107" Y="46" Z="0"/>
+					<Vertex X="107" Y="45" Z="0"/>
+					<Vertex X="107" Y="44" Z="0"/>
+					<Vertex X="107" Y="43" Z="0"/>
+					<Vertex X="108" Y="42" Z="0"/>
+					<Vertex X="109" Y="41" Z="0"/>
+					<Vertex X="109" Y="40" Z="0"/>
+					<Vertex X="110" Y="39" Z="0"/>
+					<Vertex X="111" Y="39" Z="0"/>
+					<Vertex X="111" Y="38" Z="0"/>
+					<Vertex X="112" Y="37" Z="0"/>
+					<Vertex X="113" Y="36" Z="0"/>
+					<Vertex X="113" Y="35" Z="0"/>
+					<Vertex X="114" Y="34" Z="0"/>
+					<Vertex X="115" Y="33" Z="0"/>
+					<Vertex X="116" Y="33" Z="0"/>
+					<Vertex X="117" Y="32" Z="0"/>
+					<Vertex X="118" Y="32" Z="0"/>
+					<Vertex X="119" Y="32" Z="0"/>
+					<Vertex X="119" Y="31" Z="0"/>
+					<Vertex X="120" Y="31" Z="0"/>
+					<Vertex X="121" Y="31" Z="0"/>
+					<Vertex X="122" Y="31" Z="0"/>
+					<Vertex X="123" Y="31" Z="0"/>
+					<Vertex X="124" Y="31" Z="0"/>
+					<Vertex X="125" Y="32" Z="0"/>
+					<Vertex X="124" Y="32" Z="0"/>
+				</Vertices>
+			</Region>
+			<Region Id="7" Type="0" Zoom="5" Selected="0" ImageLocation="" ImageFocus="-1" Length="95.8" Area="528.5" LengthMicrons="24.0" AreaMicrons="33.2" Text="" NegativeROA="0" InputRegionId="0" Analyze="1" DisplayId="7">
+				<Attributes/>
+				<Vertices>
+					<Vertex X="107" Y="90" Z="0"/>
+					<Vertex X="107" Y="91" Z="0"/>
+					<Vertex X="107" Y="92" Z="0"/>
+					<Vertex X="107" Y="93" Z="0"/>
+					<Vertex X="107" Y="94" Z="0"/>
+					<Vertex X="107" Y="95" Z="0"/>
+					<Vertex X="106" Y="96" Z="0"/>
+					<Vertex X="106" Y="97" Z="0"/>
+					<Vertex X="105" Y="97" Z="0"/>
+					<Vertex X="104" Y="98" Z="0"/>
+					<Vertex X="103" Y="98" Z="0"/>
+					<Vertex X="102" Y="98" Z="0"/>
+					<Vertex X="101" Y="99" Z="0"/>
+					<Vertex X="100" Y="99" Z="0"/>
+					<Vertex X="99" Y="99" Z="0"/>
+					<Vertex X="98" Y="99" Z="0"/>
+					<Vertex X="97" Y="99" Z="0"/>
+					<Vertex X="95" Y="99" Z="0"/>
+					<Vertex X="94" Y="100" Z="0"/>
+					<Vertex X="93" Y="100" Z="0"/>
+					<Vertex X="92" Y="99" Z="0"/>
+					<Vertex X="90" Y="99" Z="0"/>
+					<Vertex X="89" Y="99" Z="0"/>
+					<Vertex X="88" Y="98" Z="0"/>
+					<Vertex X="86" Y="98" Z="0"/>
+					<Vertex X="85" Y="97" Z="0"/>
+					<Vertex X="85" Y="96" Z="0"/>
+					<Vertex X="84" Y="95" Z="0"/>
+					<Vertex X="83" Y="93" Z="0"/>
+					<Vertex X="83" Y="92" Z="0"/>
+					<Vertex X="83" Y="91" Z="0"/>
+					<Vertex X="83" Y="90" Z="0"/>
+					<Vertex X="82" Y="89" Z="0"/>
+					<Vertex X="83" Y="87" Z="0"/>
+					<Vertex X="83" Y="86" Z="0"/>
+					<Vertex X="84" Y="84" Z="0"/>
+					<Vertex X="84" Y="83" Z="0"/>
+					<Vertex X="84" Y="82" Z="0"/>
+					<Vertex X="85" Y="81" Z="0"/>
+					<Vertex X="86" Y="80" Z="0"/>
+					<Vertex X="86" Y="78" Z="0"/>
+					<Vertex X="87" Y="77" Z="0"/>
+					<Vertex X="88" Y="75" Z="0"/>
+					<Vertex X="89" Y="75" Z="0"/>
+					<Vertex X="90" Y="74" Z="0"/>
+					<Vertex X="91" Y="74" Z="0"/>
+					<Vertex X="92" Y="73" Z="0"/>
+					<Vertex X="93" Y="73" Z="0"/>
+					<Vertex X="94" Y="73" Z="0"/>
+					<Vertex X="95" Y="73" Z="0"/>
+					<Vertex X="96" Y="73" Z="0"/>
+					<Vertex X="97" Y="74" Z="0"/>
+					<Vertex X="99" Y="74" Z="0"/>
+					<Vertex X="100" Y="74" Z="0"/>
+					<Vertex X="100" Y="75" Z="0"/>
+					<Vertex X="101" Y="75" Z="0"/>
+					<Vertex X="102" Y="76" Z="0"/>
+					<Vertex X="102" Y="77" Z="0"/>
+					<Vertex X="103" Y="78" Z="0"/>
+					<Vertex X="103" Y="79" Z="0"/>
+					<Vertex X="104" Y="79" Z="0"/>
+					<Vertex X="104" Y="80" Z="0"/>
+					<Vertex X="105" Y="80" Z="0"/>
+					<Vertex X="105" Y="81" Z="0"/>
+					<Vertex X="106" Y="81" Z="0"/>
+					<Vertex X="107" Y="82" Z="0"/>
+					<Vertex X="107" Y="83" Z="0"/>
+					<Vertex X="108" Y="84" Z="0"/>
+					<Vertex X="108" Y="85" Z="0"/>
+					<Vertex X="108" Y="86" Z="0"/>
+					<Vertex X="108" Y="87" Z="0"/>
+					<Vertex X="108" Y="88" Z="0"/>
+					<Vertex X="108" Y="89" Z="0"/>
+					<Vertex X="107" Y="89" Z="0"/>
+					<Vertex X="107" Y="90" Z="0"/>
+					<Vertex X="106" Y="90" Z="0"/>
+					<Vertex X="105" Y="90" Z="0"/>
+					<Vertex X="107" Y="90" Z="0"/>
+				</Vertices>
+			</Region>
+			<Region Id="8" Type="0" Zoom="5" Selected="0" ImageLocation="" ImageFocus="-1" Length="87.6" Area="441.5" LengthMicrons="21.9" AreaMicrons="27.7" Text="" NegativeROA="0" InputRegionId="0" Analyze="1" DisplayId="8">
+				<Attributes/>
+				<Vertices>
+					<Vertex X="80" Y="115" Z="0"/>
+					<Vertex X="80" Y="116" Z="0"/>
+					<Vertex X="81" Y="116" Z="0"/>
+					<Vertex X="82" Y="117" Z="0"/>
+					<Vertex X="82" Y="118" Z="0"/>
+					<Vertex X="82" Y="119" Z="0"/>
+					<Vertex X="83" Y="120" Z="0"/>
+					<Vertex X="84" Y="121" Z="0"/>
+					<Vertex X="84" Y="122" Z="0"/>
+					<Vertex X="85" Y="122" Z="0"/>
+					<Vertex X="85" Y="123" Z="0"/>
+					<Vertex X="86" Y="123" Z="0"/>
+					<Vertex X="87" Y="124" Z="0"/>
+					<Vertex X="88" Y="124" Z="0"/>
+					<Vertex X="89" Y="125" Z="0"/>
+					<Vertex X="90" Y="125" Z="0"/>
+					<Vertex X="91" Y="125" Z="0"/>
+					<Vertex X="92" Y="125" Z="0"/>
+					<Vertex X="93" Y="125" Z="0"/>
+					<Vertex X="94" Y="125" Z="0"/>
+					<Vertex X="95" Y="125" Z="0"/>
+					<Vertex X="96" Y="124" Z="0"/>
+					<Vertex X="97" Y="124" Z="0"/>
+					<Vertex X="99" Y="123" Z="0"/>
+					<Vertex X="100" Y="123" Z="0"/>
+					<Vertex X="100" Y="122" Z="0"/>
+					<Vertex X="101" Y="121" Z="0"/>
+					<Vertex X="102" Y="121" Z="0"/>
+					<Vertex X="102" Y="120" Z="0"/>
+					<Vertex X="103" Y="119" Z="0"/>
+					<Vertex X="103" Y="118" Z="0"/>
+					<Vertex X="103" Y="117" Z="0"/>
+					<Vertex X="103" Y="116" Z="0"/>
+					<Vertex X="103" Y="115" Z="0"/>
+					<Vertex X="103" Y="114" Z="0"/>
+					<Vertex X="103" Y="113" Z="0"/>
+					<Vertex X="102" Y="113" Z="0"/>
+					<Vertex X="102" Y="112" Z="0"/>
+					<Vertex X="102" Y="111" Z="0"/>
+					<Vertex X="102" Y="110" Z="0"/>
+					<Vertex X="102" Y="109" Z="0"/>
+					<Vertex X="102" Y="108" Z="0"/>
+					<Vertex X="101" Y="108" Z="0"/>
+					<Vertex X="101" Y="107" Z="0"/>
+					<Vertex X="100" Y="107" Z="0"/>
+					<Vertex X="100" Y="106" Z="0"/>
+					<Vertex X="100" Y="105" Z="0"/>
+					<Vertex X="99" Y="105" Z="0"/>
+					<Vertex X="99" Y="104" Z="0"/>
+					<Vertex X="98" Y="104" Z="0"/>
+					<Vertex X="98" Y="103" Z="0"/>
+					<Vertex X="97" Y="103" Z="0"/>
+					<Vertex X="96" Y="103" Z="0"/>
+					<Vertex X="96" Y="103" Z="0"/>
+					<Vertex X="95" Y="103" Z="0"/>
+					<Vertex X="95" Y="102" Z="0"/>
+					<Vertex X="95" Y="101" Z="0"/>
+					<Vertex X="95" Y="100" Z="0"/>
+					<Vertex X="94" Y="100" Z="0"/>
+					<Vertex X="93" Y="100" Z="0"/>
+					<Vertex X="92" Y="100" Z="0"/>
+					<Vertex X="91" Y="100" Z="0"/>
+					<Vertex X="90" Y="100" Z="0"/>
+					<Vertex X="89" Y="100" Z="0"/>
+					<Vertex X="88" Y="100" Z="0"/>
+					<Vertex X="87" Y="101" Z="0"/>
+					<Vertex X="86" Y="101" Z="0"/>
+					<Vertex X="85" Y="102" Z="0"/>
+					<Vertex X="85" Y="103" Z="0"/>
+					<Vertex X="84" Y="103" Z="0"/>
+					<Vertex X="84" Y="104" Z="0"/>
+					<Vertex X="83" Y="105" Z="0"/>
+					<Vertex X="83" Y="106" Z="0"/>
+					<Vertex X="82" Y="106" Z="0"/>
+					<Vertex X="82" Y="107" Z="0"/>
+					<Vertex X="81" Y="108" Z="0"/>
+					<Vertex X="80" Y="109" Z="0"/>
+					<Vertex X="80" Y="110" Z="0"/>
+					<Vertex X="80" Y="111" Z="0"/>
+					<Vertex X="80" Y="112" Z="0"/>
+					<Vertex X="80" Y="113" Z="0"/>
+					<Vertex X="80" Y="114" Z="0"/>
+					<Vertex X="80" Y="115" Z="0"/>
+				</Vertices>
+			</Region>
+		</Regions>
+		<Plots/>
+	</Annotation>
+	<Annotation Id="4" Name="" ReadOnly="0" NameReadOnly="0" LineColorReadOnly="0" Incremental="0" Type="4" LineColor="65280" Visible="1" Selected="0" MarkupImagePath="" MacroName="">
+		<Attributes>
+			<Attribute Name="Macrophage" Id="0" Value=""/>
+		</Attributes>
+		<Regions>
+			<RegionAttributeHeaders>
+				<AttributeHeader Id="9999" Name="Region" ColumnWidth="-1"/>
+				<AttributeHeader Id="9997" Name="Length" ColumnWidth="-1"/>
+				<AttributeHeader Id="9996" Name="Area" ColumnWidth="-1"/>
+				<AttributeHeader Id="9998" Name="Text" ColumnWidth="-1"/>
+				<AttributeHeader Id="1" Name="Description" ColumnWidth="-1"/>
+			</RegionAttributeHeaders>
+		</Regions>
+		<Plots/>
+	</Annotation>
+</Annotations>
