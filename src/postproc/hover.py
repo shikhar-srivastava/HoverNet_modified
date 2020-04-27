@@ -25,7 +25,7 @@ def proc_np_dist(pred):
     blb[blb <= 0.5] = 0
     blb = measurements.label(blb)[0]
     blb = remove_small_objects(blb, min_size=10)
-    blb[blb > 0] = 1   
+    blb[blb > 0] = 1
 
     dst_raw[dst_raw < 0] = 0
     dst = np.copy(dst_raw)
