@@ -20,6 +20,13 @@ DATA Changes:
 
 Ignoring file - TCGA-P4-AAVK-01Z-00-DX1_6 (173, 74, 3) as it's size is even less than patch size. Losing about 5 (*4 = 20) annotations. 
 
+DATASET SELECTION:
+
+MoNuSAC specifies WS are taken from 4 organs: Breast, kidney, lung and prostate, but does not specify the distribution.
+
+Train - Holdout Split
+
+	Train - 
 
 @ TO DOs:
 
