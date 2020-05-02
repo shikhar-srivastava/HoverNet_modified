@@ -1,0 +1,55 @@
+MoNuSAC 2020 related modification documentation
+
+	# Classes
+		# Total Classes for Classification - 5 including Background (class 0)
+		self.nr_types = 5
+
+		# Nuclear Instance binary segmentation classes
+		self.nr_classes = 2 # Nuclei Pixels vs Background
+
+		# Dictionary for Nucleus Type
+        self.nuclei_type_dict = {
+            'Epithelial': 1, # ! Please ensure the matching ID is unique
+            'Lymphocyte': 2,
+            'Macrophage': 3,
+            'Neutrophil': 4,
+        }
+    # 
+
+DATA Changes: 
+
+Ignoring file - TCGA-P4-AAVK-01Z-00-DX1_6 (173, 74, 3) as it's size is even less than patch size. Losing about 5 (*4 = 20) annotations. 
+
+
+@ TO DOs:
+
+Loss Function Changes
+
+	In the Cross Entropy (& Jaccard component) Loss for NC & NP, weight the classes according to organizer class weights. Minority class gets 10 times the weight. Or something like that. Or maybe just Panoptic Quality itself....?
+	Use Jac card Index in Loss Function for Classification, and not DICE
+
+Post Processing of Output
+
+	Marker M generation for thr3shokding function - choose thresholds b and k again.
+
+Pre Processing of Annotations
+
+	Annotations
+
+		Computing the Distance to Centre of Mass of each Nuclear Annotation Boundary will be important
+		Axes will have zero distance in complementary maps.
+
+	*Range is - 1 to 1 for distances.
+	*Consider using Gaussian Distribution rather than a rigid - 1 to 1.
+
+Neural Network Architecture
+
+	Patch Size, Downsampling/Upsampling degree
+
+Nuclear Classification Evaluation
+
+??? CHECK
+
+
+
+

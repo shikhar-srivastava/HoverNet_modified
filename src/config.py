@@ -33,10 +33,10 @@ class Config(object):
         # same the amount as defined in `self.nr_types` . ID 0 is preserved
         # for background so please don't use it as ID
         self.nuclei_type_dict = {
-            'Miscellaneous': 1, # ! Please ensure the matching ID is unique
-            'Inflammatory' : 2,
-            'Epithelial'   : 3,
-            'Spindle'      : 4,
+            'Epithelial': 1, # ! Please ensure the matching ID is unique
+            'Lymphocyte': 2,
+            'Macrophage': 3,
+            'Neutrophil': 4,
         }
         assert len(self.nuclei_type_dict.values()) == self.nr_types - 1
 

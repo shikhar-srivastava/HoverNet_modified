@@ -217,7 +217,7 @@
 	</Annotation>
 	<Annotation Id="5" Name="Neutrophils" ReadOnly="0" NameReadOnly="0" LineColorReadOnly="0" Incremental="0" Type="4" LineColor="16711680" Visible="1" Selected="0" MarkupImagePath="" MacroName="">
 		<Attributes>
-			<Attribute Name="Description" Id="0" Value=""/>
+			<Attribute Name="Neutrophil" Id="0" Value=""/>
 		</Attributes>
 		<Regions>
 			<RegionAttributeHeaders>

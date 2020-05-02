@@ -4,7 +4,7 @@ import os
 
 import cv2
 import numpy as np
-
+import scipy.io as sio
 from misc.patch_extractor import PatchExtractor
 from misc.utils import rm_n_mkdir
 
@@ -33,10 +33,10 @@ if __name__ == '__main__':
 
     ### Paths to data - these need to be modified according to where the original data is stored
     img_ext = '.png'
-    img_dir = '../../../data/CoNSeP/train/Images/'
-    ann_dir = '../../../data/CoNSeP/train/Labels/' 
+    img_dir = '/usr/local/opt/work/hover_net_modified/MoNuSAC_processed/Images/'
+    ann_dir = '/usr/local/opt/work/hover_net_modified/MoNuSAC_processed/Labels/' 
     ####
-    out_dir = "../../../CoNSeP/train/%dx%d_%dx%d" % \
+    out_dir = "/usr/local/opt/work/hover_net_modified/MoNuSAC_processed/Images/%dx%d_%dx%d" % \
                         (win_size[0], win_size[1], step_size[0], step_size[1])
 
     file_list = glob.glob('%s/*%s' % (img_dir, img_ext))
@@ -47,7 +47,7 @@ if __name__ == '__main__':
         filename = os.path.basename(filename)
         basename = filename.split('.')[0]
         print(filename)
-
+        #print(img_dir + basename + img_ext)
         img = cv2.imread(img_dir + basename + img_ext)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) 
         
@@ -57,10 +57,6 @@ if __name__ == '__main__':
             ann_inst = ann['inst_map']
             ann_type = ann['class_map']
             
-            # merge classes for CoNSeP (in paper we only utilise 3 nuclei classes and background)
-            # If own dataset is used, then the below may need to be modified
-            ann_type[(ann_type == 3) | (ann_type == 4)] = 3
-            ann_type[(ann_type == 5) | (ann_type == 6) | (ann_type == 7)] = 4
 
             assert np.max(ann_type) <= cfg.nr_types-1, \
                             "Only %d types of nuclei are defined for training"\

@@ -1,0 +1,5 @@
+\MoNuSAC_masks/
+540x540_80x80/
+Organizers_MoNuSAC_test_results/
+*__pycache__/
+*.DS_Store

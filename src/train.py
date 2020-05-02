@@ -163,10 +163,10 @@ class Trainer(Config):
         
         return datagen      
     ####
-    def view_dataset(self, mode='train'):
+    def view_dataset(self, mode='train'): 
         assert mode == 'train' or mode == 'valid', "Invalid view mode"
         datagen = self.get_datagen(4, mode=mode, view=True)
-        loader.visualize(datagen, 4)
+        loader.visualize(datagen, 4) # 4 is any value <= batch size of model trainer
         return
     ####
     def run_once(self, opt, sess_init=None, save_dir=None):
