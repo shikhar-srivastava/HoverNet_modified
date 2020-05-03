@@ -1,7 +1,7 @@
 
 import tensorflow as tf
 from .misc import * 
-from ..definitions import ROOT_DIR
+#from ..definitions import ROOT_DIR
 
 #### Training parameters
 ###
@@ -15,6 +15,7 @@ from ..definitions import ROOT_DIR
 #     1 branch regressing nuclei instance distance map (chessboard in this case),
 #     the distance map is normalized to 0-1 range
 
+ROOT_DIR = '/home/dm1/shikhar/hover_net_modified'
 np_hv = {
     'train_input_shape' : [270, 270],
     'train_mask_shape'  : [ 80,  80],

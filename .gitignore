@@ -4,3 +4,6 @@ Organizers_MoNuSAC_test_results/
 *__pycache__/
 *.DS_Store
 .vscode/settings.json
+MoNuSAC_backup/
+*slurm-*
+
