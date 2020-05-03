@@ -9,7 +9,7 @@ from misc.patch_extractor import PatchExtractor
 from misc.utils import rm_n_mkdir
 
 from config import Config
-
+from definitions import ROOT_DIR
 ###########################################################################
 if __name__ == '__main__':
     
@@ -32,11 +32,14 @@ if __name__ == '__main__':
     xtractor = PatchExtractor(win_size, step_size)
 
     ### Paths to data - these need to be modified according to where the original data is stored
+    print(ROOT_DIR)
     img_ext = '.png'
-    img_dir = '/usr/local/opt/work/hover_net_modified/MoNuSAC_processed/Images/'
-    ann_dir = '/usr/local/opt/work/hover_net_modified/MoNuSAC_processed/Labels/' 
+    img_dir = ROOT_DIR + '/../MoNuSAC_processed/Images/'
+    ann_dir = ROOT_DIR + '/../MoNuSAC_processed/Labels/' 
     ####
-    out_dir = "/usr/local/opt/work/hover_net_modified/MoNuSAC_processed/Images/%dx%d_%dx%d" % \
+    print(img_dir)
+
+    out_dir = ROOT_DIR + "/../MoNuSAC_processed/train/%dx%d_%dx%d" % \
                         (win_size[0], win_size[1], step_size[0], step_size[1])
 
     file_list = glob.glob('%s/*%s' % (img_dir, img_ext))

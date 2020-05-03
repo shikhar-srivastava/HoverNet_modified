@@ -11,6 +11,7 @@ from tensorpack import imgaug
 from loader.augs import (BinarizeLabel, GaussianBlur, GenInstanceDistance,
                          GenInstanceHV, MedianBlur, GenInstanceUnetMap,
                          GenInstanceContourMap)
+from definitions import ROOT_DIR
 
 #### 
 class Config(object):
@@ -71,8 +72,8 @@ class Config(object):
         self.data_ext = '.npy' 
         # list of directories containing validation patches. 
         # For both train and valid directories, a comma separated list of directories can be used
-        self.train_dir = ['../../../CoNSeP/train/%s/'  % data_code_dict[self.model_type]]
-        self.valid_dir = ['../../../CoNSeP/valid/%s/' % data_code_dict[self.model_type]]
+        self.train_dir = [ROOT_DIR + '/../MoNuSAC_processed/train/%s/'  % data_code_dict[self.model_type]]
+        self.valid_dir = [ROOT_DIR + '/../MoNuSAC_processed/valid/%s/' % data_code_dict[self.model_type]]
 
         # number of processes for parallel processing input
         self.nr_procs_train = 8 

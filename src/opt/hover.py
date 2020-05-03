@@ -1,6 +1,7 @@
 
 import tensorflow as tf
 from .misc import * 
+from ..definitions import ROOT_DIR
 
 #### Training parameters
 ###
@@ -27,7 +28,7 @@ np_hv = {
                 # tuple(initial value, schedule)
                 'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
             },
-            'pretrained_path'  : '../../../pretrained/ImageNet-ResNet50-Preact.npz',
+            'pretrained_path'  : ROOT_DIR + '/ImageNet-ResNet50-Preact.npz',
             'train_batch_size' : 8,
             'infer_batch_size' : 16,
 
@@ -76,7 +77,7 @@ np_dist = {
                 # tuple(initial value, schedule)
                 'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
             },
-            'pretrained_path'  : '../../../pretrained/ImageNet-ResNet50-Preact.npz',
+            'pretrained_path'  : ROOT_DIR + '/ImageNet-ResNet50-Preact.npz',
             'train_batch_size' : 8,
             'infer_batch_size' : 16,
 
