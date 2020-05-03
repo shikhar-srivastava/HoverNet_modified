@@ -86,7 +86,7 @@ class Config(object):
         model_id = '%s' % self.model_type
         self.model_name = '%s/%s' % (exp_id, model_id)
         # loading chkpts in tensorflow, the path must not contain extra '/'
-        self.log_path = '/media/vqdang/logs/' # log root path - modify according to needs
+        self.log_path = '/tmp/' # log root path - modify according to needs
         self.save_dir = '%s/%s' % (self.log_path, self.model_name) # log file destination
 
         #### Info for running inference
