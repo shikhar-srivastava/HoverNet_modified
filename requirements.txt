@@ -4,4 +4,4 @@ tensorpack 0.9.0.1
 opencv 3.2
 skimage
 matplotlib
-numpy 
+numpy

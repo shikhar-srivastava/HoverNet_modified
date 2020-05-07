@@ -6,4 +6,5 @@ Organizers_MoNuSAC_test_results/
 .vscode/settings.json
 MoNuSAC_backup/
 *slurm-*
-
+src/*.npy
+*test_MoNuSaC.ipynb*

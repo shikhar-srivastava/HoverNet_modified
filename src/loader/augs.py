@@ -21,6 +21,7 @@ from misc.utils import cropping_center, bounding_box
 class GenInstance(ImageAugmentor):
     def __init__(self, crop_shape=None):
         super(GenInstance, self).__init__()
+        self.catch_exceptions = True
         self.crop_shape = crop_shape
     
     def reset_state(self):
@@ -214,7 +215,8 @@ class GenInstanceHV(GenInstance):
         y_map = np.zeros(orig_ann.shape[:2], dtype=np.float32)
 
         inst_list = list(np.unique(crop_ann))
-        inst_list.remove(0) # 0 is background
+        if(0 in inst_list):
+            inst_list.remove(0) # 0 is background
         for inst_id in inst_list:
             inst_map = np.array(fixed_ann == inst_id, np.uint8)
             inst_box = bounding_box(inst_map)
@@ -237,6 +239,7 @@ class GenInstanceHV(GenInstance):
             # instance center of mass, rounded to nearest pixel
             inst_com = list(measurements.center_of_mass(inst_map))
             
+            #try:
             inst_com[0] = int(inst_com[0] + 0.5)
             inst_com[1] = int(inst_com[1] + 0.5)
 
@@ -267,12 +270,16 @@ class GenInstanceHV(GenInstance):
 
             ####
             x_map_box = x_map[inst_box[0]:inst_box[1],
-                              inst_box[2]:inst_box[3]]
+                            inst_box[2]:inst_box[3]]
             x_map_box[inst_map > 0] = inst_x[inst_map > 0]
 
             y_map_box = y_map[inst_box[0]:inst_box[1],
-                              inst_box[2]:inst_box[3]]
+                            inst_box[2]:inst_box[3]]
             y_map_box[inst_map > 0] = inst_y[inst_map > 0]
+                
+            '''except Exception as e:
+                print(e)
+                return None'''
 
         img = img.astype('float32')
         img = np.dstack([img, x_map, y_map])

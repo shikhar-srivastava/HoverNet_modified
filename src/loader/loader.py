@@ -50,11 +50,11 @@ class DatasetSerial(RNGDataFlow):
 #### 
 def valid_generator(ds, shape_aug=None, input_aug=None, label_aug=None, batch_size=16, nr_procs=1):
     ### augment both the input and label
-    ds = ds if shape_aug is None else AugmentImageComponents(ds, shape_aug, (0, 1), copy=True)
+    ds = ds if shape_aug is None else AugmentImageComponents(ds, shape_aug, (0, 1), copy=True, catch_exceptions=True)
     ### augment just the input
-    ds = ds if input_aug is None else AugmentImageComponent(ds, input_aug, index=0, copy=False)
+    ds = ds if input_aug is None else AugmentImageComponent(ds, input_aug, index=0, copy=False, catch_exceptions=True)
     ### augment just the output
-    ds = ds if label_aug is None else AugmentImageComponent(ds, label_aug, index=1, copy=True)
+    ds = ds if label_aug is None else AugmentImageComponent(ds, label_aug, index=1, copy=True, catch_exceptions=True)
     #
     ds = BatchData(ds, batch_size, remainder=True)
     ds = CacheData(ds) # cache all inference images 
@@ -63,11 +63,11 @@ def valid_generator(ds, shape_aug=None, input_aug=None, label_aug=None, batch_si
 ####
 def train_generator(ds, shape_aug=None, input_aug=None, label_aug=None, batch_size=16, nr_procs=8):
     ### augment both the input and label
-    ds = ds if shape_aug is None else AugmentImageComponents(ds, shape_aug, (0, 1), copy=True)
+    ds = ds if shape_aug is None else AugmentImageComponents(ds, shape_aug, (0, 1), copy=True, catch_exceptions=True)
     ### augment just the input i.e index 0 within each yield of DatasetSerial
-    ds = ds if input_aug is None else AugmentImageComponent(ds, input_aug, index=0, copy=False)
+    ds = ds if input_aug is None else AugmentImageComponent(ds, input_aug, index=0, copy=False, catch_exceptions=True)
     ### augment just the output i.e index 1 within each yield of DatasetSerial
-    ds = ds if label_aug is None else AugmentImageComponent(ds, label_aug, index=1, copy=True)
+    ds = ds if label_aug is None else AugmentImageComponent(ds, label_aug, index=1, copy=True, catch_exceptions=True)
     #
     ds = BatchDataByShape(ds, batch_size, idx=0)
     ds = PrefetchDataZMQ(ds, nr_procs)

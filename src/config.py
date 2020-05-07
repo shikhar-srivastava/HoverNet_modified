@@ -77,7 +77,7 @@ class Config(object):
 
         # number of processes for parallel processing input
         self.nr_procs_train = 8 
-        self.nr_procs_valid = 4 
+        self.nr_procs_valid = 4
 
         self.input_norm  = True # normalize RGB to 0-1 range
 
@@ -99,7 +99,7 @@ class Config(object):
         # while [Nuclei Pixels][Additional] will be used for extracting instances
 
         self.inf_imgs_ext = '.png'
-        self.inf_data_dir = '../../../data/CoNSeP/test/Images/'
+        self.inf_data_dir = ROOT_DIR + '/../MoNuSAC_processed/Images/' 
         self.inf_output_dir = 'output/%s/%s/' % (exp_id, model_id)
 
         # for inference during evalutaion mode i.e run by infer.py
@@ -172,7 +172,7 @@ class Config(object):
             label_augs.append(BinarizeLabel())
 
         if not view:
-            label_augs.append(imgaug.CenterCrop(output_shape))        
+            label_augs.append(imgaug.CenterCrop(output_shape))      
 
         return shape_augs, input_augs, label_augs
 
