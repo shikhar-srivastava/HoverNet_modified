@@ -16,3 +16,4 @@ src/*.npy
 *v2_multitask/*
 *v2_multitask_short/*
 src/test/*
+.vscode/settings.json
