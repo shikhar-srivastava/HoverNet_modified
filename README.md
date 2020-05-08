@@ -9,7 +9,7 @@ To obtain instance-masks from the trained model on the MoNuSAC test data in the 
 - Modify `data_dir`, `output-dir`, `model-path` to reflect MoNuSAC test data, desired output path, & downloaded trained model path (.index file) respectively. 
 
 Run the below script as:
-```python
+```
 python test_script.py --data_dir=<Path to MoNuSAC Test Dir> --output_dir='' --model_path=< path to model file (.index)> --img_ext='.tif' --gpu=''
 
 ```
