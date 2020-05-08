@@ -130,7 +130,12 @@ class Inferer(Config):
 
     ####
     def run(self):
-
+        #print('Sanity Checks: ')
+        #print('getcwd: ', os.getcwd())
+        #print('List directories:')
+        #print('  self.log_path: ', os.listdir(self.log_path))
+        #print('  self.save_dir: ', os.listdir(self.save_dir))
+        self.save_dir += '/01/'
         if self.inf_auto_find_chkpt:
             print('-----Auto Selecting Checkpoint Basing On "%s" Through "%s" Comparison' % \
                         (self.inf_auto_metric, self.inf_auto_comparator))
@@ -142,6 +147,11 @@ class Inferer(Config):
         else:
             model_path = self.inf_model_path
 
+        print('Model Path:', model_path)
+
+        ## @TODO: CHANGE this. HARD CODING of Model Path
+        
+        model_path = '/home/dm1/shikhar/hover_net_modified/src/test/model-34452.index'
         model_constructor = self.get_model()
         pred_config = PredictConfig(
             model        = model_constructor(),

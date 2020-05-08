@@ -1,5 +1,3 @@
-
-
 import importlib
 import random
 
@@ -13,39 +11,21 @@ from loader.augs import (BinarizeLabel, GaussianBlur, GenInstanceDistance,
                          GenInstanceContourMap)
 from definitions import ROOT_DIR
 
-#### 
 class Config(object):
     def __init__(self, ):
-
+        
+        # Defined static settings for all tasks 
         self.seed = 10 
         mode = 'hover'
         self.model_type = 'np_hv'
 
-        self.type_classification = True # whether to predict the nuclear type
-        # ! must use CoNSeP dataset, where nuclear type labels are available
-        # denotes number of classes for nuclear type classification, 
-        # plus the background class
-        self.nr_types = 5
-        # ! some semantic segmentation network like micronet,
-        # ! nr_types will replace nr_classes if type_classification=True
-        self.nr_classes = 2 # Nuclei Pixels vs Background
-
-        # define your nuclei type name here, please ensure it contains
-        # same the amount as defined in `self.nr_types` . ID 0 is preserved
-        # for background so please don't use it as ID
-        self.nuclei_type_dict = {
-            'Epithelial': 1, # ! Please ensure the matching ID is unique
-            'Lymphocyte': 2,
-            'Macrophage': 3,
-            'Neutrophil': 4,
-        }
-        assert len(self.nuclei_type_dict.values()) == self.nr_types - 1
-
         #### Dynamically setting the config file into variable
         if mode == 'hover':
-            config_file = importlib.import_module('opt.hover') # np_hv, np_dist
+            config_file = importlib.import_module('opt.hover_multitask') # np_hv, np_dist
+            print('(Config) Using Multi-Task Settings..')
         else:
             config_file = importlib.import_module('opt.other') # fcn8, dcan, etc.
+
         config_dict = config_file.__getattribute__(self.model_type)
 
         for variable, value in config_dict.items():
@@ -72,21 +52,19 @@ class Config(object):
         self.data_ext = '.npy' 
         # list of directories containing validation patches. 
         # For both train and valid directories, a comma separated list of directories can be used
-        self.train_dir = [ROOT_DIR + '/../MoNuSAC_processed/train/%s/'  % data_code_dict[self.model_type]]
-        self.valid_dir = [ROOT_DIR + '/../MoNuSAC_processed/valid/%s/' % data_code_dict[self.model_type]]
 
         # number of processes for parallel processing input
         self.nr_procs_train = 8 
         self.nr_procs_valid = 4
 
         self.input_norm  = True # normalize RGB to 0-1 range
-
         ####
-        exp_id = 'v1.0/'
+        # v1_multitask, v2_multitask, v2_multitask_large_batch_high_learn, 
+        exp_id = 'v2_multitask_slow'
         model_id = '%s' % self.model_type
         self.model_name = '%s/%s' % (exp_id, model_id)
         # loading chkpts in tensorflow, the path must not contain extra '/'
-        self.log_path = '/tmp/' # log root path - modify according to needs
+        self.log_path = ROOT_DIR +  '/../' # log root path - modify according to needs
         self.save_dir = '%s/%s' % (self.log_path, self.model_name) # log file destination
 
         #### Info for running inference
@@ -99,8 +77,8 @@ class Config(object):
         # while [Nuclei Pixels][Additional] will be used for extracting instances
 
         self.inf_imgs_ext = '.png'
-        self.inf_data_dir = ROOT_DIR + '/../MoNuSAC_processed/Images/' 
-        self.inf_output_dir = 'output/%s/%s/' % (exp_id, model_id)
+        self.inf_data_dir = ROOT_DIR + '/../MoNuSAC_processed/Valid_Images/' 
+        self.inf_output_dir = ROOT_DIR + '/../MoNuSAC_processed/Overlay/%s/%s' % (exp_id, model_id)
 
         # for inference during evalutaion mode i.e run by infer.py
         self.eval_inf_input_tensor_names = ['images']
@@ -110,8 +88,8 @@ class Config(object):
 
     def get_model(self):
         if self.model_type == 'np_hv':
-            model_constructor = importlib.import_module('model.graph')
-            model_constructor = model_constructor.Model_NP_HV 
+            model_constructor = importlib.import_module('model.graph_multitask')
+            model_constructor = model_constructor.Model_NP_HV
         elif self.model_type == 'np_dist':
             model_constructor = importlib.import_module('model.graph')
             model_constructor = model_constructor.Model_NP_DIST 
@@ -122,8 +100,9 @@ class Config(object):
 
     # refer to https://tensorpack.readthedocs.io/modules/dataflow.imgaug.html for 
     # information on how to modify the augmentation parameters
-    def get_train_augmentors(self, input_shape, output_shape, view=False):
-        print(input_shape, output_shape)
+    def get_train_augmentors(self, input_shape, output_shape, type_classification, view=False):
+        
+        print('GET_TRAIN_AUGMENTORS Parameters: ',input_shape, output_shape, type_classification)
         shape_augs = [
             imgaug.Affine(
                         shear=5, # in degree
@@ -168,7 +147,7 @@ class Config(object):
         if self.model_type == 'np_dist':
             label_augs = [GenInstanceDistance(crop_shape=output_shape, inst_norm=True)]
 
-        if not self.type_classification:            
+        if not type_classification:            
             label_augs.append(BinarizeLabel())
 
         if not view:

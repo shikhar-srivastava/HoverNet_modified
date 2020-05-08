@@ -29,8 +29,82 @@ Train - Holdout Split
 	Holdout - 
 
 	TCGA-55-1594-01Z-00-DX1_005, TCGA-73-4668-01Z-00-DX1_004, TCGA-78-7220-01Z-00-DX1_002, TCGA-A2-A0CV-01Z-00-DX1_2, TCGA-A2-A0CV-01Z-00-DX1_5, TCGA-E2-A154-01Z-00-DX1_1, TCGA-E2-A154-01Z-00-DX1_5, TCGA-E2-A154-01Z-00-DX1_6, TCGA-E9-A22G-01Z-00-DX1_4, TCGA-EJ-5505-01Z-00-DX1-6, TCGA-EV-5903-01Z-00-DX1_5, TCGA-G7-A8LD-01Z-00-DX1_7, TCGA-KK-A6E0-01Z-00-DX1-2, TCGA-KK-A59X-01Z-00-DX1-2, TCGA-V1-A8WL-01Z-00-DX1-2
+    [cp TCGA-55-1594-01Z-00-DX1_005* TCGA-73-4668-01Z-00-DX1_004* TCGA-78-7220-01Z-00-DX1_002* TCGA-A2-A0CV-01Z-00-DX1_2* TCGA-A2-A0CV-01Z-00-DX1_5* TCGA-E2-A154-01Z-00-DX1_1* TCGA-E2-A154-01Z-00-DX1_5* TCGA-E2-A154-01Z-00-DX1_6* TCGA-E9-A22G-01Z-00-DX1_4* TCGA-EJ-5505-01Z-00-DX1-6* TCGA-EV-5903-01Z-00-DX1_5* TCGA-G7-A8LD-01Z-00-DX1_7* TCGA-KK-A6E0-01Z-00-DX1-2* TCGA-KK-A59X-01Z-00-DX1-2* TCGA-V1-A8WL-01Z-00-DX1-2* ../Valid_Labels/
 
+
+]
 	Train - everything else
+
+MULTI-TASK DATASET
+
+== Seg Only == 
+
+== CPM15
+    img_ext = '.png'
+    img_dir = ROOT_DIR + '/../data/cpm15/Images/'
+    ann_dir = ROOT_DIR + '/../data/cpm15/Labels/' 
+    ####
+    print(img_dir)
+
+    out_dir = ROOT_DIR + "/../data/cpm15/train/%dx%d_%dx%d" % \
+                        (win_size[0], win_size[1], step_size[0], step_size[1])
+
+ 
+== CPM17 -Train & Test patch extraction done separately
+Train
+    img_ext = '.png'
+    img_dir = ROOT_DIR + '/../data/cpm17/train/Images/'
+    ann_dir = ROOT_DIR + '/../data/cpm17/train/Labels/' 
+    ####
+    print(img_dir)
+
+    out_dir = ROOT_DIR + "/../data/cpm17/train/%dx%d_%dx%d" % \
+                        (win_size[0], win_size[1], step_size[0], step_size[1])
+Test
+    img_ext = '.png'
+    img_dir = ROOT_DIR + '/../data/cpm17/test/Images/'
+    ann_dir = ROOT_DIR + '/../data/cpm17/test/Labels/' 
+    ####
+    print(img_dir)
+
+    out_dir = ROOT_DIR + "/../data/cpm17/test/%dx%d_%dx%d" % \
+                        (win_size[0], win_size[1], step_size[0], step_size[1])
+
+ == Kumar
+.TIF format
+-Train & Test patch extraction done separately
+Train
+    img_ext = '.tif'
+    img_dir = ROOT_DIR + '/../data/kumar/train/Images/'
+    ann_dir = ROOT_DIR + '/../data/kumar/train/Labels/' 
+    ####
+    print(img_dir)
+
+    out_dir = ROOT_DIR + "/../data/kumar/train/%dx%d_%dx%d" % \
+                        (win_size[0], win_size[1], step_size[0], step_size[1])
+
+Test
+    img_ext = '.tif'
+    img_dir = ROOT_DIR + '/../data/kumar/test_diff/Images/'
+    ann_dir = ROOT_DIR + '/../data/kumar/test_diff/Labels/' 
+    ####
+    print(img_dir)
+
+    out_dir = ROOT_DIR + "/../data/kumar/test_diff/%dx%d_%dx%d" % \
+                        (win_size[0], win_size[1], step_size[0], step_size[1])
+
+== CoNSeP
+
+Combine classes as per HoverNet paper
+Train
+    img_ext = '.png'
+    img_dir = ROOT_DIR + '/../data/CoNSeP/Train/Images/'
+    ann_dir = ROOT_DIR + '/../data/CoNSeP/Train/Labels/' 
+    ####
+    print(img_dir)
+
+    out_dir = ROOT_DIR + "/../data/CoNSeP/Train/%dx%d_%dx%d" % \
+                        (win_size[0], win_size[1], step_size[0], step_size[1])
 
 @ TO DOs:
 
@@ -62,5 +136,1119 @@ Nuclear Classification Evaluation
 ??? CHECK
 
 
+Network Training Experiments:
+
+1.         # v1.0, v1_multitask, v2_multitask, v2_multitask_short, 
+
+
+## Network Training Results
+
+1. v1.0 (Stored at v1.0/np_hv) [LOGS - slurm-121403.out]
+
+Training Config
+    'training_phase'    : [
+        {
+            'nr_epochs': 50,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            'pretrained_path'  : ROOT_DIR + '/ImageNet-ResNet50-Preact.npz',
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : True
+            }
+        },
+
+        {
+            'nr_epochs': 50,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 4, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False
+            }
+        }
+
+~ Hover-net modified (Single Task) - Job 121403 [LOGS - slurm-121403.out]
+
+	[0507 06:38:16 @base.py:282] Epoch 50 (global_step 39150) finished, time:4 minutes 51 seconds.
+	[0507 06:38:17 @saver.py:77] Model saved to /tmp//v1.0//np_hv/01/model-39150.
+	100%|##########|41/41[00:02<00:00,13.86it/s]
+	[0507 06:38:20 @monitor.py:459] DataParallelInferenceRunner/QueueInput/queue_size: 49.826
+	[0507 06:38:20 @monitor.py:459] QueueInput/queue_size: 48.992
+	[0507 06:38:20 @monitor.py:459] learning_rate: 1e-05
+	[0507 06:38:20 @monitor.py:459] loss-bce: 0.13565
+	[0507 06:38:20 @monitor.py:459] loss-dice: 0.23893
+	[0507 06:38:20 @monitor.py:459] loss-dice-class: 1.9144
+	[0507 06:38:20 @monitor.py:459] loss-mse: 0.017225
+	[0507 06:38:20 @monitor.py:459] loss-msge: 0.20009
+	[0507 06:38:20 @monitor.py:459] loss-xentropy-class: 0.23285
+	[0507 06:38:20 @monitor.py:459] overall-loss: 2.7563
+	[0507 06:38:20 @monitor.py:459] valid_acc: 0.94164
+	[0507 06:38:20 @monitor.py:459] valid_dice: 0.82388
+	[0507 06:38:20 @monitor.py:459] valid_dice_Epithelial: 0.82992
+	[0507 06:38:20 @monitor.py:459] valid_dice_Lymphocyte: 0.77181
+	[0507 06:38:20 @monitor.py:459] valid_dice_Macrophage: 0.80882
+	[0507 06:38:20 @monitor.py:459] valid_dice_Neutrophil: 0.84185
+	[0507 06:38:20 @monitor.py:459] valid_mse: 0.037594
+	[0507 06:38:20 @group.py:48] Callbacks took 4.361 sec in total. DataParallelInferenceRunner: 3.59 seconds
+	[0507 06:38:20 @base.py:286] Training has finished!
+	2020-05-07 06:38:20.971934: W tensorflow/core/kernels/queue_base.cc:277] _2_QueueInput/input_queue: Skipping cancelled enqueue attempt with queue not closed
+	2020-05-07 06:38:20.972031: W tensorflow/core/kernels/queue_base.cc:277] _3_DataParallelInferenceRunner/QueueInput/input_queue: Skipping cancelled enqueue attempt with queue not closed
+	[0507 06:38:21 @input_source.py:174] EnqueueThread QueueInput/input_queue Exited.
+	[0507 06:38:22 @input_source.py:174] EnqueueThread DataParallelInferenceRunner/QueueInput/input_queue Exited.
+	PrefetchDataZMQ successfully cleaned-up.
+	PrefetchDataZMQ successfully cleaned-up.
+
+Computed Statistics on Holdout Dataset are: 
+    [ 0.81694  0.74608  0.80668  0.61129  0.64900  0.64629]
+        metrics[0].append(get_dice_1(true, pred))
+        metrics[1].append(pq_info[0]) # dq
+        metrics[2].append(pq_info[1]) # sq
+        metrics[3].append(pq_info[2]) # pq
+        metrics[4].append(get_fast_aji_plus(true, pred))
+        metrics[5].append(get_fast_aji(true, pred))
+
+
+2. v1_multitask (cat slurm-121433.out)
+
+Config:
+
+PRETASK_FROZEN_EPOCHS = 2
+PRETASK_UNFROZEN_EPOCHS = 2
+TASK_EPOCHS = 50
+
+np_hv = {
+    'train_input_shape' : [270, 270],
+    'train_mask_shape'  : [ 80,  80],
+    'infer_input_shape' : [270, 270],
+    'infer_mask_shape'  : [ 80,  80], 
+
+    'training_phase'    : [
+        # CoNSeP
+         {   # Learn Decoder on Task
+             
+             # == START: Dataset specific arguments == 
+
+            'train_dir' : [ROOT_DIR + '/../data/CoNSeP/Train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/CoNSeP/Test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+            
+            'nr_epochs': PRETASK_FROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            'pretrained_path'  : ROOT_DIR + '/../ImageNet-ResNet50-Preact.npz',
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+            
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification':True,
+                'nr_types': 5,
+                'nr_classes': 2,
+                'nuclei_type_dict': {
+                    'other': 1, 
+                    'inflammatory': 2,
+                    'epithelial': 3,
+                    'spindle-shaped': 4,
+                    }
+            }
+        },
+        {   # Learn Encoder for the Task
+            # == START: Dataset specific arguments == 
+           
+            'train_dir' : [ROOT_DIR + '/../data/CoNSeP/Train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/CoNSeP/Test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': PRETASK_UNFROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 4, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification':True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'other': 1, # ! Please ensure the matching ID is unique
+                    'inflammatory': 2,
+                    'epithelial': 3,
+                    'spindle-shaped': 4,
+                    }
+            }
+        },
+
+        # CPM17
+
+        {   # Learn Decoder on Task
+            
+             # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../data/cpm17/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/cpm17/test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+            
+            'nr_epochs': PRETASK_FROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+            
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background,
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+
+        { # Learn Encoder for the Task
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../data/cpm17/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/cpm17/test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': PRETASK_UNFROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 4, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background,
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+       
+        # Kumar
+        {   # Learn Decoder on Task
+            
+             # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../data/kumar/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/kumar/test_diff/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+            
+            'nr_epochs': PRETASK_FROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+            
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+        
+        { # Learn Encoder for the Task
+            # == START: Dataset specific arguments == 
+
+            'train_dir' : [ROOT_DIR + '/../data/kumar/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/kumar/test_diff/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': PRETASK_UNFROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 4, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+        # MoNuSAC 
+        {   # Train decoder on MoNuSAC based on multi-task encoded representations 
+
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../MoNuSAC_processed/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../MoNuSAC_processed/valid/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': TASK_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            'pretrained_path'  : -1, #ROOT_DIR + '/../ImageNet-ResNet50-Preact.npz'
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification': True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'Epithelial': 1, # ! Please ensure the matching ID is unique
+                    'Lymphocyte': 2,
+                    'Macrophage': 3,
+                    'Neutrophil': 4,
+                    }
+            }
+        },
+
+        {   # Train Encoder as fine-tuning on MoNuSAC
+            
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../MoNuSAC_processed/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../MoNuSAC_processed/valid/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': TASK_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 4, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'Epithelial': 1, # ! Please ensure the matching ID is unique
+                    'Lymphocyte': 2,
+                    'Macrophage': 3,
+                    'Neutrophil': 4,
+                    }
+            }
+        }
+    ],
+
+    'loss_term' : {'bce' : 1, 'dice' : 1, 'mse' : 2, 'msge' : 1}, 
+
+    'optimizer'           : tf.train.AdamOptimizer,
+
+    'inf_auto_metric'   : 'valid_dice',
+    'inf_auto_comparator' : '>',
+    'inf_batch_size' : 16,
+}
+
+Results and Computed Statistics
+===============================
+
+[0507 21:23:35 @saver.py:77] Model saved to /home/dm1/shikhar/hover_net_modified/src/..//v1_multitask/np_hv/07/model-39984.
+100%|##########|41/41[00:02<00:00,14.05it/s]
+[0507 21:23:39 @monitor.py:459] DataParallelInferenceRunner/QueueInput/queue_size: 49.875
+[0507 21:23:39 @monitor.py:459] QueueInput/queue_size: 49.497
+[0507 21:23:39 @monitor.py:459] learning_rate: 1e-05
+[0507 21:23:39 @monitor.py:459] loss-bce: 0.15457
+[0507 21:23:39 @monitor.py:459] loss-dice: 0.24664
+[0507 21:23:39 @monitor.py:459] loss-dice-class: 1.7818
+[0507 21:23:39 @monitor.py:459] loss-mse: 0.0184
+[0507 21:23:39 @monitor.py:459] loss-msge: 0.20342
+[0507 21:23:39 @monitor.py:459] loss-xentropy-class: 0.22228
+[0507 21:23:39 @monitor.py:459] overall-loss: 2.6455
+[0507 21:23:39 @monitor.py:459] valid_acc: 0.94072
+[0507 21:23:39 @monitor.py:459] valid_dice: 0.82658
+[0507 21:23:39 @monitor.py:459] valid_dice_Epithelial: 0.82894
+[0507 21:23:39 @monitor.py:459] valid_dice_Lymphocyte: 0.74935
+[0507 21:23:39 @monitor.py:459] valid_dice_Macrophage: 0.78966
+[0507 21:23:39 @monitor.py:459] valid_dice_Neutrophil: 0.83614
+[0507 21:23:39 @monitor.py:459] valid_mse: 0.039196
+[0507 21:23:39 @group.py:48] Callbacks took 5.018 sec in total. DataParallelInferenceRunner: 3.58 seconds
+[0507 21:23:39 @base.py:286] Training has finished!
+
+
+
+
+3. v2_multitask (cat slurm-121439.out)
+
+Configuration
+
+
+ROOT_DIR = '/home/dm1/shikhar/hover_net_modified/src'
+PRETASK_FROZEN_EPOCHS = 10
+PRETASK_UNFROZEN_EPOCHS = 10
+TASK_EPOCHS = 50
+PRETASK_LEARNING_RATE = 1.0e-3
+
+np_hv = {
+    'train_input_shape' : [270, 270],
+    'train_mask_shape'  : [ 80,  80],
+    'infer_input_shape' : [270, 270],
+    'infer_mask_shape'  : [ 80,  80], 
+
+    'training_phase'    : [
+
+        # CPM17
+
+        {   # Learn Decoder on Task
+            
+             # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../data/cpm17/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/cpm17/test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+            
+            'nr_epochs': PRETASK_FROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('10', PRETASK_LEARNING_RATE)]), 
+            },
+            'pretrained_path'  : ROOT_DIR + '/../ImageNet-ResNet50-Preact.npz',
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+            
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background,
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+
+        { # Learn Encoder for the Task
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../data/cpm17/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/cpm17/test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': PRETASK_UNFROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('10', PRETASK_LEARNING_RATE)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background,
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+       
+        # Kumar
+        {   # Learn Decoder on Task
+            
+             # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../data/kumar/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/kumar/test_diff/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+            
+            'nr_epochs': PRETASK_FROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('10', PRETASK_LEARNING_RATE)]), 
+            },
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+            
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+        
+        { # Learn Encoder for the Task
+            # == START: Dataset specific arguments == 
+
+            'train_dir' : [ROOT_DIR + '/../data/kumar/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/kumar/test_diff/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': PRETASK_UNFROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('10', PRETASK_LEARNING_RATE)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+        # CoNSeP
+        {   # Learn Decoder on Task
+             
+             # == START: Dataset specific arguments == 
+
+            'train_dir' : [ROOT_DIR + '/../data/CoNSeP/Train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/CoNSeP/Test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+            
+            'nr_epochs': 15,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('10', PRETASK_LEARNING_RATE)]), 
+            },
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+            
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification':True,
+                'nr_types': 5,
+                'nr_classes': 2,
+                'nuclei_type_dict': {
+                    'other': 1, 
+                    'inflammatory': 2,
+                    'epithelial': 3,
+                    'spindle-shaped': 4,
+                    }
+            }
+        },
+
+        {   # Learn Encoder for the Task
+            # == START: Dataset specific arguments == 
+           
+            'train_dir' : [ROOT_DIR + '/../data/CoNSeP/Train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/CoNSeP/Test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': 15,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('10', PRETASK_LEARNING_RATE)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification':True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'other': 1, # ! Please ensure the matching ID is unique
+                    'inflammatory': 2,
+                    'epithelial': 3,
+                    'spindle-shaped': 4,
+                    }
+            }
+        },
+
+        # MoNuSAC 
+        {   # Train decoder on MoNuSAC based on multi-task encoded representations 
+
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../MoNuSAC_processed/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../MoNuSAC_processed/valid/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': TASK_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            'pretrained_path'  : -1, #ROOT_DIR + '/../ImageNet-ResNet50-Preact.npz'
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification': True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'Epithelial': 1, # ! Please ensure the matching ID is unique
+                    'Lymphocyte': 2,
+                    'Macrophage': 3,
+                    'Neutrophil': 4,
+                    }
+            }
+        },
+
+        {   # Train Encoder as fine-tuning on MoNuSAC
+            
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../MoNuSAC_processed/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../MoNuSAC_processed/valid/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': TASK_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('25', 1.0e-5)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 4, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'Epithelial': 1, # ! Please ensure the matching ID is unique
+                    'Lymphocyte': 2,
+                    'Macrophage': 3,
+                    'Neutrophil': 4,
+                    }
+            }
+        }
+    ],
+
+    'loss_term' : {'bce' : 1, 'dice' : 1, 'mse' : 2, 'msge' : 1}, 
+
+    'optimizer'           : tf.train.AdamOptimizer,
+
+    'inf_auto_metric'   : 'valid_dice',
+    'inf_auto_comparator' : '>',
+    'inf_batch_size' : 16,
+}
+
+
+Results and Computed Statistics
+===============================
+
+[0507 23:46:34 @saver.py:77] Model saved to /home/dm1/shikhar/hover_net_modified/src/..//v2_multitask/np_hv/07/model-42118.
+100%|##########|41/41[00:02<00:00,13.82it/s]
+[0507 23:46:38 @monitor.py:459] DataParallelInferenceRunner/QueueInput/queue_size: 49.873
+[0507 23:46:38 @monitor.py:459] QueueInput/queue_size: 48.004
+[0507 23:46:38 @monitor.py:459] learning_rate: 1e-05
+[0507 23:46:38 @monitor.py:459] loss-bce: 0.14295
+[0507 23:46:38 @monitor.py:459] loss-dice: 0.22765
+[0507 23:46:38 @monitor.py:459] loss-dice-class: 2.4458
+[0507 23:46:38 @monitor.py:459] loss-mse: 0.018726
+[0507 23:46:38 @monitor.py:459] loss-msge: 0.22298
+[0507 23:46:38 @monitor.py:459] loss-xentropy-class: 0.17471
+[0507 23:46:38 @monitor.py:459] overall-loss: 3.2515
+[0507 23:46:38 @monitor.py:459] valid_acc: 0.93249
+[0507 23:46:38 @monitor.py:459] valid_dice: 0.79559
+[0507 23:46:38 @monitor.py:459] valid_dice_Epithelial: 0.83496
+[0507 23:46:38 @monitor.py:459] valid_dice_Lymphocyte: 0.77113
+[0507 23:46:38 @monitor.py:459] valid_dice_Macrophage: 0.7902
+[0507 23:46:38 @monitor.py:459] valid_dice_Neutrophil: 0.83246
+[0507 23:46:38 @monitor.py:459] valid_mse: 0.039461
+[0507 23:46:38 @group.py:48] Callbacks took 4.851 sec in total. DataParallelInferenceRunner: 3.47 seconds
+
+
+
+
+4. v2_multitask_short ( cat slurm-121440.out )
+
+
+Config 
+
+
+ROOT_DIR = '/home/dm1/shikhar/hover_net_modified/src'
+PRETASK_FROZEN_EPOCHS = 5
+PRETASK_UNFROZEN_EPOCHS = 5
+TASK_EPOCHS = 55
+PRETASK_LEARNING_RATE = 1.0e-3
+
+np_hv = {
+    'train_input_shape' : [270, 270],
+    'train_mask_shape'  : [ 80,  80],
+    'infer_input_shape' : [270, 270],
+    'infer_mask_shape'  : [ 80,  80], 
+
+    'training_phase'    : [
+        # CPM17
+        {   # Learn Decoder on Task
+            
+             # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../data/cpm17/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/cpm17/test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+            
+            'nr_epochs': PRETASK_FROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('5', PRETASK_LEARNING_RATE)]), 
+            },
+            'pretrained_path'  : ROOT_DIR + '/../ImageNet-ResNet50-Preact.npz',
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+            
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background,
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+
+        { # Learn Encoder for the Task
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../data/cpm17/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/cpm17/test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': PRETASK_UNFROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('5', PRETASK_LEARNING_RATE)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background,
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+       
+        # Kumar
+        {   # Learn Decoder on Task
+            
+             # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../data/kumar/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/kumar/test_diff/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+            
+            'nr_epochs': PRETASK_FROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('5', PRETASK_LEARNING_RATE)]), 
+            },
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+            
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+        
+        { # Learn Encoder for the Task
+            # == START: Dataset specific arguments == 
+
+            'train_dir' : [ROOT_DIR + '/../data/kumar/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/kumar/test_diff/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': PRETASK_UNFROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('5', PRETASK_LEARNING_RATE)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+        # CoNSeP
+        {   # Learn Decoder on Task
+             
+             # == START: Dataset specific arguments == 
+
+            'train_dir' : [ROOT_DIR + '/../data/CoNSeP/Train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/CoNSeP/Test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+            
+            'nr_epochs': 20,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('5', 1.0e-4)]), 
+            },
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+            
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification':True,
+                'nr_types': 5,
+                'nr_classes': 2,
+                'nuclei_type_dict': {
+                    'other': 1, 
+                    'inflammatory': 2,
+                    'epithelial': 3,
+                    'spindle-shaped': 4,
+                    }
+            }
+        },
+
+        {   # Learn Encoder for the Task
+            # == START: Dataset specific arguments == 
+           
+            'train_dir' : [ROOT_DIR + '/../data/CoNSeP/Train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/CoNSeP/Test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': 20,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('5', 1.0e-4)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification':True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'other': 1, # ! Please ensure the matching ID is unique
+                    'inflammatory': 2,
+                    'epithelial': 3,
+                    'spindle-shaped': 4,
+                    }
+            }
+        },
+
+        # MoNuSAC 
+        {   # Train decoder on MoNuSAC based on multi-task encoded representations 
+
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../MoNuSAC_processed/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../MoNuSAC_processed/valid/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': TASK_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('30', 1.0e-5)]), 
+            },
+            'pretrained_path'  : -1, #ROOT_DIR + '/../ImageNet-ResNet50-Preact.npz'
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification': True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'Epithelial': 1, # ! Please ensure the matching ID is unique
+                    'Lymphocyte': 2,
+                    'Macrophage': 3,
+                    'Neutrophil': 4,
+                    }
+            }
+        },
+
+        {   # Train Encoder as fine-tuning on MoNuSAC
+            
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../MoNuSAC_processed/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../MoNuSAC_processed/valid/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': TASK_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('30', 1.0e-5)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 4, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'Epithelial': 1, # ! Please ensure the matching ID is unique
+                    'Lymphocyte': 2,
+                    'Macrophage': 3,
+                    'Neutrophil': 4,
+                    }
+            }
+        }
+    ],
+
+    'loss_term' : {'bce' : 1, 'dice' : 1, 'mse' : 2, 'msge' : 1}, 
+
+    'optimizer'           : tf.train.AdamOptimizer,
+
+    'inf_auto_metric'   : 'valid_dice',
+    'inf_auto_comparator' : '>',
+    'inf_batch_size' : 16,
+}
+
+
+
+Results and Computed Statistics
+===============================
+
+
+<< Not Executed >> 
+5. v2_multitask_slow (121441.out)
+
+Config
+
+ROOT_DIR = '/home/dm1/shikhar/hover_net_modified/src'
+PRETASK_FROZEN_EPOCHS = 15
+PRETASK_UNFROZEN_EPOCHS = 15
+TASK_EPOCHS = 55
+PRETASK_LEARNING_RATE = 1.0e-4
+
+np_hv = {
+    'train_input_shape' : [270, 270],
+    'train_mask_shape'  : [ 80,  80],
+    'infer_input_shape' : [270, 270],
+    'infer_mask_shape'  : [ 80,  80], 
+
+    'training_phase'    : [
+        # CoNSeP
+        {   # Learn End-to-End (Both Encoder/Decoder) for the Task
+            # == START: Dataset specific arguments == 
+           
+            'train_dir' : [ROOT_DIR + '/../data/CoNSeP/Train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/CoNSeP/Test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': PRETASK_UNFROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('15', 1.0e-4)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : ROOT_DIR + '/../ImageNet-ResNet50-Preact.npz',
+            'train_batch_size' : 8, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification':True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'other': 1, # ! Please ensure the matching ID is unique
+                    'inflammatory': 2,
+                    'epithelial': 3,
+                    'spindle-shaped': 4,
+                    }
+            }
+        },
+        # CPM17
+        { # Learn Encoder for the Task
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../data/cpm17/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/cpm17/test/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': PRETASK_UNFROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('5', PRETASK_LEARNING_RATE)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background,
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+        # Kumar        
+        { # Learn Encoder for the Task
+            # == START: Dataset specific arguments == 
+
+            'train_dir' : [ROOT_DIR + '/../data/kumar/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../data/kumar/test_diff/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': PRETASK_UNFROZEN_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (PRETASK_LEARNING_RATE, [('5', PRETASK_LEARNING_RATE)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 8, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': False,
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {},
+                'nr_types': -1
+            }
+        },
+
+        # MoNuSAC 
+        {   # Train decoder on MoNuSAC based on multi-task encoded representations 
+
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../MoNuSAC_processed/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../MoNuSAC_processed/valid/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': TASK_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('30', 1.0e-5)]), 
+            },
+            'pretrained_path'  : -1, #ROOT_DIR + '/../ImageNet-ResNet50-Preact.npz'
+            'train_batch_size' : 8,
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : True,
+                'type_classification': True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'Epithelial': 1, # ! Please ensure the matching ID is unique
+                    'Lymphocyte': 2,
+                    'Macrophage': 3,
+                    'Neutrophil': 4,
+                    }
+            }
+        },
+
+        {   # Train Encoder as fine-tuning on MoNuSAC
+            
+            # == START: Dataset specific arguments == 
+            'train_dir' : [ROOT_DIR + '/../MoNuSAC_processed/train/540x540_80x80/'],
+            'valid_dir' : [ROOT_DIR + '/../MoNuSAC_processed/valid/540x540_80x80/'],
+             # == END: Dataset specific arguments == 
+
+            'nr_epochs': TASK_EPOCHS,
+            'manual_parameters' : { 
+                # tuple(initial value, schedule)
+                'learning_rate': (1.0e-4, [('30', 1.0e-5)]), 
+            },
+            # path to load, -1 to auto load checkpoint from previous phase, 
+            # None to start from scratch
+            'pretrained_path'  : -1,
+            'train_batch_size' : 4, # unfreezing everything will
+            'infer_batch_size' : 16,
+
+            'model_flags' : {
+                'freeze' : False,
+                'type_classification': True,
+                'nr_types': 5,
+            # ! nr_types will replace nr_classes if type_classification=True
+                'nr_classes': 2, # Nuclei Pixels vs Background
+                'nuclei_type_dict': {
+                    'Epithelial': 1, # ! Please ensure the matching ID is unique
+                    'Lymphocyte': 2,
+                    'Macrophage': 3,
+                    'Neutrophil': 4,
+                    }
+            }
+        }
+    ],
+
+    'loss_term' : {'bce' : 1, 'dice' : 1, 'mse' : 2, 'msge' : 1}, 
+
+    'optimizer'           : tf.train.AdamOptimizer,
+
+    'inf_auto_metric'   : 'valid_dice',
+    'inf_auto_comparator' : '>',
+    'inf_batch_size' : 16,
+}
+
+Results and Computed Statistics
+===============================
 
 

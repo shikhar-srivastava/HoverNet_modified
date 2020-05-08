@@ -82,25 +82,25 @@ class Config(object):
         self.input_norm  = True # normalize RGB to 0-1 range
 
         ####
-        exp_id = 'v1.0/'
+        exp_id = 'v1.0'
         model_id = '%s' % self.model_type
         self.model_name = '%s/%s' % (exp_id, model_id)
         # loading chkpts in tensorflow, the path must not contain extra '/'
-        self.log_path = '/tmp/' # log root path - modify according to needs
+        self.log_path = ROOT_DIR + '/../' # log root path - modify according to needs
         self.save_dir = '%s/%s' % (self.log_path, self.model_name) # log file destination
 
         #### Info for running inference
         self.inf_auto_find_chkpt = True 
         # path to checkpoints will be used for inference, replace accordingly
-        self.inf_model_path  = self.save_dir + '/model-19640.index'
-
+        #self.inf_model_path  = self.save_dir + '/model-19640.index'
+        self.inf_model_path  = self.save_dir + '/01/model-39150.index'
         # output will have channel ordering as [Nuclei Type][Nuclei Pixels][Additional]
         # where [Nuclei Type] will be used for getting the type of each instance
         # while [Nuclei Pixels][Additional] will be used for extracting instances
 
         self.inf_imgs_ext = '.png'
-        self.inf_data_dir = ROOT_DIR + '/../MoNuSAC_processed/Images/' 
-        self.inf_output_dir = 'output/%s/%s/' % (exp_id, model_id)
+        self.inf_data_dir = ROOT_DIR + '/../MoNuSAC_processed/Valid_Images/' 
+        self.inf_output_dir = ROOT_DIR + '/../MoNuSAC_processed/Overlay/%s/%s' % (exp_id, model_id)
 
         # for inference during evalutaion mode i.e run by infer.py
         self.eval_inf_input_tensor_names = ['images']
