@@ -35,8 +35,9 @@ cfg = Config()
 
 # * flag for HoVer-Net only
 # 1 - threshold, 2 - sobel based
-energy_mode = 2 
+energy_mode = 2
 marker_mode = 2 
+
 
 pred_dir = cfg.inf_output_dir
 proc_dir = pred_dir + '_proc'

@@ -17,3 +17,5 @@ src/*.npy
 *v2_multitask_short/*
 src/test/*
 .vscode/settings.json
+src/test.ipynb
+src/632_mask.mat

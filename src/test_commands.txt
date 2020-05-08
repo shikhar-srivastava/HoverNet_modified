@@ -1,0 +1,1 @@
+python test_script.py --data_dir='/home/dm1/shikhar/hover_net_modified/src/test' --output_dir='/home/dm1/shikhar/hover_net_modified/MoNuSAC_processed/final_test' --model_path='/home/dm1/shikhar/hover_net_modified/v2_multitask/np_hv/07/model-35854.index' --img_ext='.tif'

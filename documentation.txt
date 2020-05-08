@@ -1067,6 +1067,28 @@ np_hv = {
 Results and Computed Statistics
 ===============================
 
+[0507 22:54:05 @base.py:282] Epoch 31 (global_step 34057) finished, time:5 minutes 1 second.
+[0507 22:54:07 @saver.py:77] Model saved to /home/dm1/shikhar/hover_net_modified/src/..//v2_multitask_short/np_hv/07/model-34057.
+100%|##########|41/41[00:03<00:00,13.28it/s]
+[0507 22:54:10 @monitor.py:459] DataParallelInferenceRunner/QueueInput/queue_size: 49.936
+[0507 22:54:10 @monitor.py:459] QueueInput/queue_size: 49.597
+[0507 22:54:10 @monitor.py:459] learning_rate: 1e-05
+[0507 22:54:10 @monitor.py:459] loss-bce: 0.14712
+[0507 22:54:10 @monitor.py:459] loss-dice: 0.24397
+[0507 22:54:10 @monitor.py:459] loss-dice-class: 2.5795
+[0507 22:54:10 @monitor.py:459] loss-mse: 0.018407
+[0507 22:54:10 @monitor.py:459] loss-msge: 0.21881
+[0507 22:54:10 @monitor.py:459] loss-xentropy-class: 0.20273
+[0507 22:54:10 @monitor.py:459] overall-loss: 3.4289
+[0507 22:54:10 @monitor.py:459] valid_acc: 0.92887
+[0507 22:54:10 @monitor.py:459] valid_dice: 0.78246
+[0507 22:54:10 @monitor.py:459] valid_dice_Epithelial: 0.82054
+[0507 22:54:10 @monitor.py:459] valid_dice_Lymphocyte: 0.75228
+[0507 22:54:10 @monitor.py:459] valid_dice_Macrophage: 0.76508
+[0507 22:54:10 @monitor.py:459] valid_dice_Neutrophil: 0.83136
+[0507 22:54:10 @monitor.py:459] valid_mse: 0.042996
+[0507 22:54:10 @group.py:48] Callbacks took 5.065 sec in total. DataParallelInferenceRunner: 3.67 seconds
+
 
 << Not Executed >> 
 5. v2_multitask_slow (121441.out)
