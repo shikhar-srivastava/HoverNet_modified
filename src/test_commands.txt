@@ -1,1 +1,15 @@
 python test_script.py --data_dir='/home/dm1/shikhar/hover_net_modified/src/test' --output_dir='/home/dm1/shikhar/hover_net_modified/MoNuSAC_processed/final_test' --model_path='/home/dm1/shikhar/hover_net_modified/v2_multitask/np_hv/07/model-35854.index' --img_ext='.tif'
+
+
+v1_multitask/np_hv/07/model-33198.data-00000-of-00001, v1_multitask/np_hv/07/model-33198.index
+
+
+/home/dm1/shikhar/hover_net_modified/v1_multitask/np_hv/07/graph-0507-171108.meta
+
+/home/dm1/shikhar/hover_net_modified/v1_multitask/np_hv/07/model-33198.data-00000-of-00001
+
+/home/dm1/shikhar/hover_net_modified/v1_multitask/np_hv/07/model-33198.index
+
+#/home/dm1/shikhar/hover_net_modified/v1_multitask/np_hv/07/events.out.tfevents.1588885846.dgx-r74-1.ling
+
+cp -r /home/dm1/shikhar/hover_net_modified/v1_multitask/np_hv/07/model-33198.index /home/dm1/shikhar/check_sandbox/testing_code/

@@ -19,15 +19,8 @@ from scipy.ndimage.morphology import (binary_dilation, binary_fill_holes,
 from skimage.morphology import remove_small_objects, watershed
 
 import postproc.hover
-import postproc.dist
-import postproc.other
-
-from misc.viz_utils import visualize_instances
-from misc.utils import get_inst_centroid
 from metrics.stats_utils import remap_label
-
 from config import Config
-
 
 def rm_n_mkdir(dir_path):
     if (os.path.isdir(dir_path)):
@@ -43,9 +36,6 @@ class_id_mapping = {
             3: 'Macrophage',
             4: 'Neutrophil',
         }
-
-
-
 
 class Submission(Config):
 

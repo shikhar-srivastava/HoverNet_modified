@@ -35,6 +35,18 @@ Train - Holdout Split
 ]
 	Train - everything else
 
+### FINAL REPORTING
+## MODEL v1_multitask
+# Files: v1_multitask/np_hv/07/model-33198.data-00000-of-00001, v1_multitask/np_hv/07/model-33198.index
+# REPORTING THIS
+#Performance  '/home/dm1/shikhar/hover_net_modified/src/..//v1_multitask/np_hv/07/model-33198': [ 0.79046  0.68914  0.76172  0.56644  0.60720  0.60457]
+        metrics[0].append(get_dice_1(true, pred))
+        metrics[1].append(pq_info[0]) # dq
+        metrics[2].append(pq_info[1]) # sq
+        metrics[3].append(pq_info[2]) # pq
+        metrics[4].append(get_fast_aji_plus(true, pred))
+        metrics[5].append(get_fast_aji(true, pred))
+
 MULTI-TASK DATASET
 
 == Seg Only == 
@@ -219,6 +231,15 @@ Computed Statistics on Holdout Dataset are:
         metrics[4].append(get_fast_aji_plus(true, pred))
         metrics[5].append(get_fast_aji(true, pred))
 
+
+#MODEL_DIR = '/home/dm1/shikhar/hover_net_modified/v2_multitask/np_hv/07'
+#Performance [ 0.79046  0.68914  0.76172  0.56644  0.60720  0.60457]
+        metrics[0].append(get_dice_1(true, pred))
+        metrics[1].append(pq_info[0]) # dq
+        metrics[2].append(pq_info[1]) # sq
+        metrics[3].append(pq_info[2]) # pq
+        metrics[4].append(get_fast_aji_plus(true, pred))
+        metrics[5].append(get_fast_aji(true, pred))
 
 2. v1_multitask (cat slurm-121433.out)
 

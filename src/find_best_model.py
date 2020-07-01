@@ -19,10 +19,49 @@ import operator
 import time
 
 ####
+# v1.1
+    [ 0.81694  0.74608  0.80668  0.61129  0.64900  0.64629]
+        metrics[0].append(get_dice_1(true, pred))
+        metrics[1].append(pq_info[0]) # dq
+        metrics[2].append(pq_info[1]) # sq
+        metrics[3].append(pq_info[2]) # pq
+        metrics[4].append(get_fast_aji_plus(true, pred))
+        metrics[5].append(get_fast_aji(true, pred))
 
-#/home/dm1/shikhar/hover_net_modified/v2_multitask/np_hv/07/model-35854.index
+# v1_multitask
+# REPORTING THIS
+#Performance  '/home/dm1/shikhar/hover_net_modified/src/..//v1_multitask/np_hv/07/model-33198': [ 0.79046  0.68914  0.76172  0.56644  0.60720  0.60457]
 
-MODEL_DIR = '/home/dm1/shikhar/hover_net_modified/v2_multitask/np_hv/07'
+# v2_multitask
+# Let's Try: /home/dm1/shikhar/hover_net_modified/src/..//v2_multitask/np_hv/07/model-42118
+'''[0507 23:46:38 @monitor.py:459] DataParallelInferenceRunner/QueueInput/queue_size: 49.873
+[0507 23:46:38 @monitor.py:459] QueueInput/queue_size: 48.004
+[0507 23:46:38 @monitor.py:459] learning_rate: 1e-05
+[0507 23:46:38 @monitor.py:459] loss-bce: 0.14295
+[0507 23:46:38 @monitor.py:459] loss-dice: 0.22765
+[0507 23:46:38 @monitor.py:459] loss-dice-class: 2.4458
+[0507 23:46:38 @monitor.py:459] loss-mse: 0.018726
+[0507 23:46:38 @monitor.py:459] loss-msge: 0.22298
+[0507 23:46:38 @monitor.py:459] loss-xentropy-class: 0.17471
+[0507 23:46:38 @monitor.py:459] overall-loss: 3.2515
+[0507 23:46:38 @monitor.py:459] valid_acc: 0.93249
+[0507 23:46:38 @monitor.py:459] valid_dice: 0.79559
+[0507 23:46:38 @monitor.py:459] valid_dice_Epithelial: 0.83496
+[0507 23:46:38 @monitor.py:459] valid_dice_Lymphocyte: 0.77113
+[0507 23:46:38 @monitor.py:459] valid_dice_Macrophage: 0.7902
+[0507 23:46:38 @monitor.py:459] valid_dice_Neutrophil: 0.83246
+[0507 23:46:38 @monitor.py:459] valid_mse: 0.039461
+[ 0.76476  0.63755  0.75260  0.51692  0.58312  0.57970]
+        metrics[0].append(get_dice_1(true, pred))
+        metrics[1].append(pq_info[0]) # dq
+        metrics[2].append(pq_info[1]) # sq
+        metrics[3].append(pq_info[2]) # pq
+        metrics[4].append(get_fast_aji_plus(true, pred))
+        metrics[5].append(get_fast_aji(true, pred))
+'''
+
+#MODEL_DIR = '/home/dm1/shikhar/hover_net_modified/v2_multitask/np_hv/07'
+
 #'/home/dm1/shikhar/hover_net_modified/v2_multitask_short/np_hv/07'
 #'/home/dm1/shikhar/hover_net_modified/v1_multitask/np_hv/07'
 #/home/dm1/shikhar/hover_net_modified/v2_multitask/np_hv/07

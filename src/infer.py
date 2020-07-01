@@ -151,7 +151,7 @@ class Inferer(Config):
 
         ## @TODO: CHANGE this. HARD CODING of Model Path
         
-        model_path = '/home/dm1/shikhar/hover_net_modified/src/test/model-34452.index'
+        model_path = '/home/dm1/shikhar/hover_net_modified/src/..//v2_multitask/np_hv/07/model-42118'
         model_constructor = self.get_model()
         pred_config = PredictConfig(
             model        = model_constructor(),
