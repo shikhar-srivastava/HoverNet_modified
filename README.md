@@ -1,5 +1,4 @@
-# Submission to MoNuSAC Post-Challenge 2020
-
+# 2nd Place Submission to ISBI 2020's MoNuSAC Post-Challenge
 ### Hover-Net adapted to the Multi-Task, Transfer-Learning setting
 
 To obtain instance-masks from the trained model on the MoNuSAC test data in the required challenge format:
@@ -38,8 +37,26 @@ Files needed to modify multi-task behavior:
 
 
 ### Global Repository Structure 
+
 For details on the general repository structure, refer to `hover_net-README.md` 
 
+### Citations
+
+MoNuSAC 2020
+
+```
+@article{monusac2020,
+author = {Verma, Ruchika; Kumar, Neeraj; Patil, Abhijeet; Kurian, Nikhil; Rane, Swapnil; and Sethi, Amit},
+year = {2020},
+month = {02},
+pages = {},
+language = {en},
+title = {Multi-organ Nuclei Segmentation and Classification Challenge 2020},
+publisher = {Unpublished},
+doi = {10.13140/RG.2.2.12290.02244/1},
+ url = {http://rgdoi.net/10.13140/RG.2.2.12290.02244/1}
+}
+```
 HoVer-Net Paper linked [here](https://arxiv.org/abs/1812.06499)
 ```
 @article{graham2019hover,
