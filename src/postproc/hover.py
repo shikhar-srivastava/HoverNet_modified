@@ -65,7 +65,7 @@ def proc_np_hv(pred, marker_mode=2, energy_mode=2, rgb=None):
 
     blb = measurements.label(blb)[0]
     blb = remove_small_objects(blb, min_size=10)
-    blb[blb > 0] = 1 # back ground is 0 already
+    blb[blb > 0] = 1 # background is 0 already
     #####
 
     if energy_mode == 2 or marker_mode == 2:

@@ -356,7 +356,7 @@ class GenInstanceDistance(GenInstance):
 
 ####
 class GaussianBlur(ImageAugmentor):
-    """ Gaussian blur the image with random window size"""
+    """ Gaussian blur the image with random window size """
     def __init__(self, max_size=3):
         """
         Args:

@@ -30,6 +30,11 @@ from metrics.stats_utils import remap_label
 ## ! WARNING: 
 ## check the prediction channels, wrong ordering will break the code !
 ## the prediction channels ordering should match the ones produced in augs.py
+'''
+
+CFG to be changed.
+
+'''
 
 cfg = Config()
 

@@ -108,6 +108,9 @@ class Config(object):
         # for inference during training mode i.e run by trainer.py
         self.train_inf_output_tensor_names = ['predmap-coded', 'truemap-coded']
 
+        '''
+            Model functions
+        '''
     def get_model(self):
         if self.model_type == 'np_hv':
             model_constructor = importlib.import_module('model.graph')
@@ -122,6 +125,8 @@ class Config(object):
 
     # refer to https://tensorpack.readthedocs.io/modules/dataflow.imgaug.html for 
     # information on how to modify the augmentation parameters
+    #
+    #
     def get_train_augmentors(self, input_shape, output_shape, view=False):
         print(input_shape, output_shape)
         shape_augs = [

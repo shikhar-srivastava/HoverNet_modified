@@ -9,7 +9,6 @@ import scipy.io as sio
 import pandas as pd
 
 from metrics.stats_utils import *
-
 def run_nuclei_type_stat(pred_dir, true_dir, type_uid_list=None, exhaustive=True):
     """
     GT must be exhaustively annotated for instance location (detection)

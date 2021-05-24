@@ -96,7 +96,7 @@ def decoder(name, i):
 
             u2x = Conv2D('conva', u2_sum, 128, 5, strides=1, padding=pad)
             u2 = dense_blk('dense', u2x, [128, 32], [1, 5], 4, split=4, padding=pad)
-            u2 = Conv2D('convf', u2, 256, 1, strides=1)   
+            u2 = Conv2D('convf', u2, 256, 1, strides=1)
         ####
         with tf.variable_scope('u1'):          
             u1 = upsample2x('rz', u2)
@@ -158,35 +158,44 @@ class Model_NP_HV(Model):
         images, truemap_coded = inputs
         orig_imgs = images
 
+        # Ensure the Truemap is cast to tf.int32 and one-hot encoded. 
+        '''
+            true_np : [batch, 80,80, 1]
+            one_type: [batch, 80,80, nr_types] (type_classification) | [batch, 80,80, 2] 
+            true_type: [batch, 80,80,1] # type_classification only
+            
+            true_hv: [batch, 80,80,2] # 
+
+        '''
         if hasattr(self, 'type_classification') and self.type_classification:
-            true_type = truemap_coded[...,1]
+            true_type = truemap_coded[...,1] # [80,80]
             true_type = tf.cast(true_type, tf.int32)
-            true_type = tf.identity(true_type, name='truemap-type')
-            one_type  = tf.one_hot(true_type, self.nr_types, axis=-1)
-            true_type = tf.expand_dims(true_type, axis=-1)
+            true_type = tf.identity(true_type, name='truemap-type') # [80,80]
+            one_type  = tf.one_hot(true_type, self.nr_types, axis=-1) # [80,80 nr_types]
+            true_type = tf.expand_dims(true_type, axis=-1) # [80,80,1]
 
             true_np = tf.cast(true_type > 0, tf.int32) # ? sanity this
-            true_np = tf.identity(true_np, name='truemap-np')
-            one_np  = tf.one_hot(tf.squeeze(true_np), 2, axis=-1)
+            true_np = tf.identity(true_np, name='truemap-np') # [80,80,1]
+            one_np  = tf.one_hot(tf.squeeze(true_np), 2, axis=-1) # [80,80,2] NP Branch
         else:
-            true_np = truemap_coded[...,0]
+            true_np = truemap_coded[...,0] # [80,80]
             true_np = tf.cast(true_np, tf.int32)
             true_np = tf.identity(true_np, name='truemap-np')
-            one_np  = tf.one_hot(true_np, 2, axis=-1)
-            true_np = tf.expand_dims(true_np, axis=-1)
-
+            one_np  = tf.one_hot(true_np, 2, axis=-1) # [80,80,2]
+            true_np = tf.expand_dims(true_np, axis=-1) # [80,80,1]
+            
         true_hv = truemap_coded[...,-2:]
         true_hv = tf.identity(true_hv, name='truemap-hv')
-
         ####
         with argscope(Conv2D, activation=tf.identity, use_bias=False, # K.he initializer
                       W_init=tf.variance_scaling_initializer(scale=2.0, mode='fan_out')), \
                 argscope([Conv2D, BatchNorm], data_format=self.data_format):
 
-            i = tf.transpose(images, [0, 3, 1, 2])
+            i = tf.transpose(images, [0, 3, 1, 2]) # Convert to NHWC format
             i = i if not self.input_norm else i / 255.0
 
-            ####
+            #### Encoding & Center-Cropping 
+
             d = encoder(i, self.freeze)
             d[0] = crop_op(d[0], (184, 184))
             d[1] = crop_op(d[1], (72, 72))
@@ -204,7 +213,7 @@ class Model_NP_HV(Model):
 
                 # Nuclei Type Pixels (TP)
                 logi_class = Conv2D('conv_out_tp', tp, self.nr_types, 1, use_bias=True, activation=tf.identity)
-                logi_class = tf.transpose(logi_class, [0, 2, 3, 1])
+                logi_class = tf.transpose(logi_class, [0, 2, 3, 1]) # Convert from NHWC back to NCHW
                 soft_class = tf.nn.softmax(logi_class, axis=-1)
 
             #### Nuclei Pixels (NP)
@@ -227,6 +236,10 @@ class Model_NP_HV(Model):
             else:
                 predmap_coded = tf.concat([prob_np, pred_hv], axis=-1, name='predmap-coded')
         ####
+
+
+
+
         def get_gradient_hv(l, h_ch, v_ch):
             """
             Calculate the horizontal partial differentiation for horizontal channel

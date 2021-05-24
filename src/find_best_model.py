@@ -20,14 +20,14 @@ import time
 
 ####
 # v1.1
-    [ 0.81694  0.74608  0.80668  0.61129  0.64900  0.64629]
+'''[ 0.81694  0.74608  0.80668  0.61129  0.64900  0.64629]
         metrics[0].append(get_dice_1(true, pred))
         metrics[1].append(pq_info[0]) # dq
         metrics[2].append(pq_info[1]) # sq
         metrics[3].append(pq_info[2]) # pq
         metrics[4].append(get_fast_aji_plus(true, pred))
         metrics[5].append(get_fast_aji(true, pred))
-
+'''
 # v1_multitask
 # REPORTING THIS
 #Performance  '/home/dm1/shikhar/hover_net_modified/src/..//v1_multitask/np_hv/07/model-33198': [ 0.79046  0.68914  0.76172  0.56644  0.60720  0.60457]
