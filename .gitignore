@@ -18,4 +18,7 @@ src/*.npy
 src/test/*
 .vscode/settings.json
 src/test.ipynb
-src/632_mask.mat
+data/cpm15/Images/image_00.png
+*.out
+*.npy
+*.mat
