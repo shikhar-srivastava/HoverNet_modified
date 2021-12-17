@@ -23,18 +23,17 @@ Install the required libraries before using this code. Please refer to `requirem
 ## Dataset
 Download the datasets & modify the paths in `config_multitask`:
 - [CoNSeP](https://warwick.ac.uk/fac/sci/dcs/research/tia/data/hovernet/)
-- [Kumar,CPM-17](https://drive.google.com/open?id=1l55cv3DuY-f7-JotDN7N5nbNnjbLWchK)
+- [Kumar & CPM-17](https://drive.google.com/open?id=1l55cv3DuY-f7-JotDN7N5nbNnjbLWchK)
 
 Ground truth files are in `.mat` format, refer to the README included with the datasets for further information.
 
 ### Repository 
 
 Files needed to modify multi-task behavior:
-- `test_script.py :` 
-- `config_multitask :` 
-- `train_multitask :` 
-- `config_multitask :` 
-
+- [test_script](./src/test_script.py) : Test & Eval script
+- [config_multitask](./src/config_multitask.py) : Config
+- [train_multitask](./src/train_multitask.py) : Training Script
+- [hover_multitask](./src/opt/hover_multitask.py) : Network & Training protocol
 
 ### Global Repository Structure 
 
@@ -57,7 +56,8 @@ doi = {10.13140/RG.2.2.12290.02244/1},
  url = {http://rgdoi.net/10.13140/RG.2.2.12290.02244/1}
 }
 ```
-HoVer-Net Paper linked [here](https://arxiv.org/abs/1812.06499)
+
+HoVer-Net Paper [Linked [here](https://arxiv.org/abs/1812.06499)]
 ```
 @article{graham2019hover,
   title={Hover-net: Simultaneous segmentation and classification of nuclei in multi-tissue histology images},
